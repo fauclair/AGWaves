@@ -1467,30 +1467,27 @@ We have then shown in Section \ref{SectionAnalyticalSol} that the root of the in
 		%{\delta_z+\frac{\epsilon_i^2+\epsilon_a^2}{2}\tan(\delta_z)}
 \end{equation}
 Since the right-hand-side decreases fast with $\delta_x$ and $\delta_z$, the vertical wave-number $\delta_z$ has to be close to $n\pi$ with $n$ a non-zero integer. This agrees with the internal gravity wave solution found graphically in Section \ref{SectionGraphic}.\\
-A Taylor development of relation \ref{DispSysIntModesab} with respect to $\delta_z$ is required in the vicinity of $\delta_{z,n}^0=n\pi$ to obtain an analytical relation of the form $\delta_z(\delta_x)$:
- \begin{equation}
+A Taylor development of relation \ref{DispSysIntModesab} with respect to $\delta_z$ is required in the vicinity of $\delta_{z,n}^0=n\pi$ to obtain an analytical relation of the form $\delta_z(\delta_x)$ and the pulsation can finally be expressed as a function of $\delta_x$ using the expression of the stratification function $\omega_i$:
+\begin{subequations}
+	\begin{alignat}{2}	
 	\label{ParamallMIM1}
-	\delta_{z}(\delta_x)=\delta_{z,mim}(\delta_x)=\delta_{z,n}^0\left(
+	&\delta_{z}(\delta_x) &&=\delta_{z,mim}(\delta_x)=
+	\underbrace{\delta_{z,n}^0}_{\delta_{z,im}}
+	\left(
 	1+\frac{\epsilon_i^2}{\delta_x^2+\delta_{z,n}^2}
 	%+\frac{(\delta_x^2-\delta_{z,n}^2)}{(\delta_x^2+\delta_{z,n}^2)^3}\epsilon_i^4
 	\right)
-	+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)
-\end{equation}
-The pulsation can finally be expressed as a function of $\delta_x$ using the expression of the stratification function $\omega_i$:
-\begin{equation}
+	+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)\\[3mm]
 	\label{ParamallMIM2}
-	\omega^2(\delta_x)=\omega_{mim}^2(\delta_x)=\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
+	&\omega^2(\delta_x) &&=\omega_{mim}^2(\delta_x)=
+	\underbrace{\epsilon_i^2}
+	_{\omega^2_{im}}
+	\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
 	\left(1-\frac{2\epsilon_i^2\delta_{z,n}^2}{(\delta_x^2+\delta_{z,n}^2)^2}\right)
 	+\mathrm{O}	(\epsilon_i^6,\epsilon_a^4)
-\end{equation}
-	&\omega^2(\delta_x) &&=\omega^2_{im}(\delta_x) =\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
-\begin{subequations}
-	\begin{alignat}{2}	
-	&\delta_{z,im} &&=\delta_{z,n}^0\\
-	&\omega^2(\delta_x) &&=\omega^2_{im}(\delta_x) =\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
 	\end{alignat}
 \end{subequations}
-leading to the conclusion that the internal gravity modes are robust to compressibility since there is dependency to $\epsilon_a$ at orders lower than 4 vanishes. This agrees with the separation of the roots $\omega_\pm$ of the inner dispersion relation for real vertical wave-numbers.\\
+where $\delta_{z,im}$ and $\omega_{im}$ are defined in dimensional form in Table \ref{TableWave solutions}. This shows that the internal gravity modes are robust to compressibility since there is dependency to $\epsilon_a$ at orders lower than 4 vanishes. This agrees with the separation of the roots $\omega_\pm$ of the inner dispersion relation for real vertical wave-numbers.\\
 A simpler parametric relation can further be found in the vicinity of $\delta_z=\pi\ (n=1)$ in the long wave limit using a Taylor development for vanishing $\delta_x$, $\epsilon_i$ and $\epsilon_a$:
 \begin{subequations}
 	   \label{EqParamInt}
