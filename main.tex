@@ -156,10 +156,12 @@ The treatment of the free-surface boundary can yet be much trickier. Small-ampli
 		Acronym & Name & Dispersion relations & Parametrized relations \\\hline
 		MAW & Modified Acoustic Wave & \ref{DispAcousDT} & \ref{DispAcousDT}\\
 		MIW & Modified Internal Wave ray & \ref{DispRaysDT} & \ref{DispRaysDT}\\\hline
-		MAM & Modified Acoustic Mode & \ref{DispSysAcousModes12} & LMAM (\oldref{ParamLMAM1}, \oldref{ParamLMAM2}) SMAM (\oldref{ParamSMAM1}, \oldref{ParamSMAM2})\\
+		MAM & Modified Acoustic Mode $(m=1)$& \ref{DispSysAcousModes12} & LMAM (\oldref{ParamLMAM1}, \oldref{ParamLMAM2}),\\
+		& & & SMAM (\oldref{ParamSMAM1}, \oldref{ParamSMAM2})\\
 		MSW & Modified Surface Wave & \ref{EqFullDisperai} \& \ref{EqFullDisperbi} & \ref{EqDispLonga1} \& \ref{Eqdzdx2} \\
 		LMSW & Long Modified Surface Wave & \ref{EqFullDisperai} \& \ref{EqFullDisperbi} & \ref{Eqxxx} \& \ref{EqDispDeltaz0} \\
-		MIM & Modified Internal Mode 1 & \ref{DispSysIntModesab} & LMIM (\oldref{ParamMIM1}, \oldref{ParamMIM2})\\
+		MIM & Modified Internal Mode $(n=1)$  & \ref{DispSysIntModesab} & MIM (\oldref{ParamallMIM1}, \oldref{ParamallMIM2}),\\
+		& & & LMIM (\oldref{ParamMIM1}, \oldref{ParamMIM2})\\
 		LMIM0 & Long Gravity Oscillation (LMIM 0)& \ref{EqFullDispera} \& \ref{Eqxxx} & LMIM (\oldref{MIMomega2}, \oldref{MIMdz2})\\
 	\end{tabular}
 	
@@ -783,7 +785,7 @@ For small $\epsilon_i$ and $\epsilon_a$ parameters, these two roots can be compa
 	+\mathrm{O}	(\epsilon_i^p,\epsilon_a^{6-p})\\[3mm]
 	\label{Comp2}
 	&\omega_{-}^2(\delta_x,\ \delta_z)-\omega_i^2(\delta_x,\ \delta_z)
-	&&=\frac{\epsilon_i^4\epsilon_a^2\delta_x^2}{(\delta_x^2+\delta_z^2)^3}
+	&&=\frac{\epsilon_i^4\epsilon_a^2\delta_x^4}{(\delta_x^2+\delta_z^2)^3}
 	+\mathrm{O}	(\epsilon_a^q,\epsilon_i^{10-q})
 	\end{alignat}	
 \end{subequations}
@@ -839,11 +841,11 @@ A first consequence is that for small, strictly-positive, parameters $\epsilon_i
 	<
 	\frac{1}{4}
 \end{equation}
-Both roots are real and distinct whatever $\delta_x$ and $\delta_z$. \\
-Still for small, strictly-positive, parameters, another consequence is that:
+Both roots are real and distinct whatever $\delta_x$ and $\delta_z$. Still for small, strictly-positive, parameters, another consequence is that:
 \begin{subequations}
 	\begin{alignat}{2}	
 	&\omega_{+}^2-\omega_{-}^2 &&=\omega_a^2\sqrt{1-4 R^2}\\[3mm]
+	\label{deltaomegapm}
 	& &&\geq \frac{(\epsilon_a^2+\epsilon_i^2)^2}{4\epsilon_a^2}
 	\sqrt{1-\frac{16\epsilon_a^2\epsilon_i^2}{\left
 	(\epsilon_a^2+\epsilon_i^2
@@ -883,24 +885,25 @@ If $\delta_z\in i\ \mathbb{R}$, \ref{EqFullDisperai} does not necessarily have t
 	\delta_x^2-\delta_{z,i}^2=2\epsilon_a\epsilon_i\delta_x 
 	-\frac{(\epsilon_i^2+\epsilon_a^2)^2}{4}
 \end{equation} 
-When the inner dispersion relation \ref{EqFullDisperai} has real roots (i.e. $R^2\leq1/4$), the wave solutions do not propagate vertically, they are \textit{vertically-evanescent} and can only propagate horizontally. The roots $\omega_{\pm}(\delta_x,\ i\delta_{z,i})$ are not well-separated anymore but they are bounded by $\omega_{i}(\delta_x,\ \delta_{z,i})$ and $\omega_{a}(\delta_x,\ \delta_{z,i})$. Indeed,  $\omega_{-}^2\leq\omega_{+}^2$ and:
+When the inner dispersion relation \ref{EqFullDisperai} has real roots (i.e. $R^2\leq1/4$), the wave solutions do not propagate vertically, they are \textit{vertically-evanescent} and can only propagate horizontally. The roots $\omega_{\pm}(\delta_x,\ i\delta_{z,i})$ are not well-separated anymore but they are bounded by $\omega_{i}(\delta_x,\ \delta_{z,i})$ and $\omega_{a}(\delta_x,\ \delta_{z,i})$. Indeed,  from Relation \ref{deltaomegapm}: $\omega_{-}^2(\delta_x,\ i\delta_{z,i})\leq\omega_{+}^2(\delta_x,\ i\delta_{z,i})$ and from Relations \ref{Comp1} and \ref{Comp2}: $\omega_+^2(\delta_x,\ i\delta_{z,i})\leq\omega_a^2(\delta_x,\ i\delta_{z,i})$ and $\omega_i^2(\delta_x,\ i\delta_{z,i})\leq\omega_-^2(\delta_x,\ i\delta_{z,i})$:
 \begin{subequations}
 	\begin{alignat}{2}	
 	\nonumber&\omega_{i}^2(\delta_x,\ \delta_{z,i})=
 	\frac{\delta_x^2\ \epsilon_i^2}{\delta_x^2+\delta_{z,i}^2
 	+(\epsilon_a^2+\epsilon_i^2)^2/4}
 	&&\ \leq\  
-	\omega_{-}^2(\delta_x,\ i\delta_{z,i})=
+	\omega_{i}^2(\delta_x,\ i\delta_{z,i})=
 	\frac{\delta_x^2\ \epsilon_i^2}{\delta_x^2-\delta_{z,i}^2
 	+(\epsilon_a^2+\epsilon_i^2)^2/4}\\[3mm]
+	\nonumber& &&\ \leq\ \omega_-^2(\delta_x,\ i\delta_{z,i})\ \leq\ \omega_+^2(\delta_x,\ i\delta_{z,i})\\[3mm]
 	\nonumber& &&\ \leq\  
-	\omega_{+}^2(\delta_x,\ i\delta_{z,i})=\frac{1}{\epsilon_a^2}\left(
-	\delta_x^2+\delta_{z,i}^2
+	\omega_{a}^2(\delta_x,\ i\delta_{z,i})=\frac{1}{\epsilon_a^2}\left(
+	\delta_x^2-\delta_{z,i}^2
 	+\frac{(\epsilon_a^2+\epsilon_i^2)^2}{4}
 	\right)\\[3mm]
 	\nonumber& &&\ \leq\ 
 	\omega_{a}^2(\delta_x,\ \delta_{z,i})=\frac{1}{\epsilon_a^2}\left(
-	\delta_x^2-\delta_{z,i}^2
+	\delta_x^2+\delta_{z,i}^2
 	+\frac{(\epsilon_a^2+\epsilon_i^2)^2}{4}
 	\right)
 	\end{alignat}
@@ -918,14 +921,15 @@ leading eventually to:
 Note above that the acoustic and stratification functions $\omega_a$ and $\omega_i$ which bounds the relation, are chosen for an equivalent wave of real vertical wave-number $\delta_{z,i}$.
 As a consequence, for a given horizontal wave-number $\delta_x$, a vertically-vanishing wave $(\delta_z\in i\mathbb{R})$ can propagate with a pulsation smaller than the acoustic function $\omega_{a}(\delta_x,\ \delta_{z,i})$ and larger than the stratification function $\omega_{i}(\delta_x,\ \delta_{z,i})$. This inversely confirms the separation of the two wave-solutions for $\delta_z\in \mathbb{R}$: a vanishing wave-solution can be found in between.\\
 The remaining question is that of the separation of the roots when $\delta_z\in i\ \mathbb{R}$: unlike for real vertical wave-numbers, if  $(R^2=1/4)$, the inner dispersion relation \ref{EqFullDisperai} has a double root and $\omega_+ = \omega_-$.\\
-Far from this region, i.e. if $\exists\ \alpha>0\ /\ R^2\leq 1/4(1-\alpha^2)$ or in $(\delta_x,\ \delta_z,\ \omega)$ phase-space (sufficient relation):
+Far from this region, i.e. if can find a strictly-positive constant $\alpha$ such that:
+%i.e. if we can find $\alpha>0$ such that $R^2\leq 1/4(1-\alpha^2)$ or in $(\delta_x,\ \delta_z,\ \omega)$ phase-space (sufficient relation):
 \begin{equation}
 	\label{regsepi}
 	\delta_x^2-\delta_{z,i}^2\geq
 	\frac{2\epsilon_i\epsilon_a\delta_x}
 	{\sqrt{1-\alpha^2}}
 \end{equation}
-the roots are well-separated:
+then, from Relation \ref{eqratio}, $R^2\leq (1-\alpha^2)/4$ and, from Relation \ref{deltaomegapm}, the roots are well-separated:
 \begin{subequations}
 	\begin{alignat}{2}	
 	&\omega_{+}^2-\omega_{-}^2 &&=\omega_a^2\sqrt{1-4 R^2}\\[3mm]
@@ -933,18 +937,18 @@ the roots are well-separated:
 	\geq \alpha\frac{(\epsilon_i^2+\epsilon_a^2)^2}{4\epsilon_a^2}
 	\end{alignat}
 \end{subequations}
-and Relations \ref{Comp1} and \ref{Comp2} show that:
+Then the relations \ref{Comp1} and \ref{Comp2} with \ref{regsepi} lead to two additional inequalities:
 \begin{subequations}
 	\begin{alignat}{2}
 	\label{Comp1b}
-	&\omega_a^2(\delta_x,\ \delta_z)-\omega_{+}^2(\delta_x,\ \delta_z)
+	&\omega_a^2(\delta_x,\ i\delta_{z,i})-\omega_{+}^2(\delta_x,\ i\delta_{z,i})
 	&&\leq\frac{\epsilon_i\sqrt{1-\alpha^2}}{2\epsilon_a}\ \delta_x\\[3mm]
 	\label{Comp2b}
-	&\omega_{-}^2(\delta_x,\ \delta_z)-\omega_i^2(\delta_x,\ \delta_z)
+	&\omega_{-}^2(\delta_x,\ i\delta_{z,i})-\omega_i^2(\delta_x,\ i\delta_{z,i})
 	&& \leq\frac{\epsilon_i (1-\alpha^2)^{3/2}}{2\epsilon_a}\frac{1}{\delta_x}
 	\end{alignat}	
 \end{subequations}
-These relations show that for $\delta_z\in i\ \mathbb{R}$, the roots are well-separated in the region of phase-space far enough from the plane $\delta_x=\delta_{z,i}$ \ref{regsepi} and, in such a region, the roots can be as close as required from the acoustic (stratification) functions if $\delta_x$ is decreased (respectively increased).
+These relations show that for $\delta_z\in i\ \mathbb{R}$, the roots are well-separated in the region of phase-space far enough from the plane $\delta_x=\delta_{z,i}$ \ref{regsepi} and, in such a region, the root $\omega_+$ (respectively $\omega_-$) can be as close as required from the acoustic (stratification) function if $\delta_x$ is decreased (respectively increased).
 
 \subsection{Wave solutions in an unbounded, incompressible ocean}
 \label{SubSectionUsualDisp}
@@ -956,23 +960,22 @@ We shall additionally confirm in this simple configuration the physical meaning 
 
 \subsubsection{Modified internal waves (MIW)}
 
-When $\delta_z\in \mathbb{R}$, a second-order Taylor development of the gravity-wave solution $\omega_{-}$ \ref{SolGrav} with respect to small parameters $\epsilon_a$ and $\epsilon_i$ leads to:
-
+When $\delta_z\in \mathbb{R}$, a Taylor development of the gravity-wave solution $\omega_{-}$ \ref{SolGrav} with respect to small parameters $\epsilon_a$ and $\epsilon_i$ leads to:
 \begin{equation}
 	\label{DispRaysDT}
 		\frac{\omega^2}{\epsilon_i^2} =\underbrace{
 		\frac{\delta_x^2}{\delta_x^2+\delta_z^2}
-		\left(1-\frac{\epsilon_i^2+\epsilon_a^2}{4(\delta_x^2+\delta_z^2)}\right)}_{\approx\ \omega_i^2/\epsilon_i^2}
-		+\frac{\epsilon_i^2\epsilon_a^2\delta_x^2}{(\delta_x^2+\delta_z^2)^3}
-		+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)
+		\left(1-\frac{(\epsilon_i^2+\epsilon_a^2)^2}{4(\delta_x^2+\delta_z^2)}\right)}_{\approx\ \omega_i^2/\epsilon_i^2}
+		+\frac{\epsilon_i^2\epsilon_a^2}{(\delta_x^2+\delta_z^2)^3}\delta_x^4
+		+\mathrm{O}	(\epsilon_i^{6},\epsilon_a^{6})
 \end{equation}
 The traditional dispersion relation for dispersive internal gravity wave rays (Gill, 1982, see also Table \oldref{TableWave solutions} above)
 \begin{equation}
 	\frac{\omega_{iwr}^2}{\epsilon_i^2}=\frac{ \delta_x^2}{\delta_x^2+\delta_z^2}
 	\label{DispRays}
 \end{equation}
-is recovered at second order in $\epsilon_i$ and $\epsilon_a$. Relations \ref{DispRaysDT} and \ref{DispRays} further show that $\omega_{iwr}^2/\epsilon_i^2$ is a second-order approximation of $\omega_i^2/\epsilon_i^2$ and is itself a fourth-order approximation of the general solution $\omega^2/\epsilon_i^2$.
-As a consequence, when parameters $\epsilon_i^2$ and $\epsilon_a^2$  are both small, the stratification function $\omega_i(\delta_x,\delta_z)$ is an internal gravity wave ray modified by compressibility and propagating in an unbounded ocean. The first term of the second-order correction is proportional to $\epsilon_i^2+\epsilon_a^2=H/D_0$ and consequently depends on the relative strength of the stratification (with no compressibility correction). It can only reduces the pulsation. The second term depends on the product of $\epsilon_i^2$ and $\epsilon_a^2$ and thus both on the stratification and compressibility. It increases the pulsation.\\
+is recovered at fourth order in $\epsilon_i$ and $\epsilon_a$. Relations \ref{DispRaysDT} and \ref{DispRays} further show that $\omega_{iwr}^2/\epsilon_i^2$ is a fourth-order approximation of $\omega_i^2/\epsilon_i^2$ and is itself an approximation of the general solution $\omega^2/\epsilon_i^2$.
+As a consequence, when parameters $\epsilon_i^2$ and $\epsilon_a^2$  are both small, the stratification function $\omega_i(\delta_x,\delta_z)$ is an internal gravity wave ray modified by compressibility and propagating in an unbounded ocean. Both corrective terms on the right-hand-side are proportional to $\epsilon_i^2+\epsilon_a^2=H/D_0$ and consequently depends on the relative strength of the stratification (with no compressibility correction). The first corrective term can only reduce the pulsation, the last term can only increase it. \\
 The ocean waves satisfying \ref{DispRaysDT} are internal gravity wave rays modified by compressibility and shall now be referred to as \textit{Modified Internal Waves (MIW)}.
 
 \subsubsection{Modified acoustic waves (MAW)}
@@ -1206,7 +1209,7 @@ Figure \ref{Fig_Approx} will be used in the present section to display these app
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=1\linewidth]
-		{FIGURES/Fig_App3_Real_Grav.png}
+		{FIGURES/Fig_App3_Real_Grav_v2.png}
 		\caption{}
 	\end{subfigure}
 	
@@ -1224,7 +1227,7 @@ Figure \ref{Fig_Approx} will be used in the present section to display these app
 	
 	\caption{\textit{Approximations to MAW (a), MSW (b), MIW (c) and long modified waves (d). Polychrome: inner dispersion surfaces. Light-blue: boundary dispersion surfaces.\\
 MAM (blue lines): numerical approximation (solid), short waves $(\delta_{z,smam},\ \omega_{smam})$ (dash-dotted), long waves $(\delta_{z,lmam},\ \omega_{lmam})$ (dashed).\\
-MIM (red \& pink): numerical approximation (red, solid), long MIM for  $n=1$ $(\delta_{z,lmim1},\ \omega_{lmim1})$ (red, dash-dotted), MIM for $n=0$ $(\delta_{z,mim},\ \omega_{mim})$ (pink, solid), long MIM for $n=0$ $(\delta_{z,lmimo},\ \omega_{lmimo})$ (pink, dotted).\\
+MIM (red \& pink): numerical approximation (red, solid), MIM for $n=1$ $(\delta_{z,mim},\ \omega_{mim})$ (red,dashed), long MIM for  $n=1$ $(\delta_{z,lmim},\ \omega_{lmim})$ (red, dash-dotted), MIM for $n=0$ $(\delta_{z,mim},\ \omega_{mim})$ (pink, solid), long MIM for $n=0$ $(\delta_{z,lmimo},\ \omega_{lmimo})$ (pink, dotted).\\
 MSW (black): numerical approximation (solid), long waves $(\delta_{z,lmsw},\ \omega_{lmsw})$ (dashed), MSW-$\epsilon$ (dash-dotted). MSW (Grey): Swell $(\delta_{z,sw},\ \omega_{sw})$ (solid), long waves $(\delta_{z,lsw},\ \omega_{lsw})$ (dashed).} }
 	\label{Fig_Approx}
 \end{figure}
@@ -1274,9 +1277,9 @@ At second order in $(\epsilon_i,\ \epsilon_a)$, the inner dispersion relation \r
 \begin{equation}
 	\label{Eqdzdx1}
 	\displaystyle
-	\delta_z(\delta_x) = \delta_{z,sw}(\delta_x)=\delta_x + O(\epsilon_i^2,\ \epsilon_a^2)
+	\delta_{z,i}(\delta_x) = \delta_{z,sw}(\delta_x)=\delta_x + O(\epsilon_i^2,\ \epsilon_a^2)
 \end{equation}
-This crude (but usual) approximation can be substituted in the boundary dispersion relation \ref{EqFullDisperbi}, leading at lowest order in $(\epsilon_i,\epsilon_a)$:
+where $\delta_{z,sw}$ is defined in non-dimensional form in Table \ref{TableWave solutions}. This crude (but usual) approximation can be substituted in the boundary dispersion relation \ref{EqFullDisperbi}, leading at lowest order in $(\epsilon_i,\epsilon_a)$:
 \begin{equation}
 	\label{EqDispLonga1}
 	\displaystyle
@@ -1315,21 +1318,26 @@ The dispersion relations (\oldref{EqDispLonga1} - \oldref{Eqdzdx2}) give a param
 %At lowest order in $\delta_x$ now, the usual dispersion relation for (very) long surface gravity waves (with $\sqrt{g H}$ phase-velocity) is recovered (see Table \oldref{TableWave solutions}). Th
 %This sequence of approximations approaches the intersection computed numerically (black-point line in Fig. \oldref{FigDispSolutions}) for Taylor developments of higher order (Figure \oldref{Fig_Approx}) and for large wave-numbers and pulsations, however the region of small vertical (and thus small horizontal) wave-numbers remains badly resolved. The (very) long-wave approximation (grey-dashed line on Fig. \ref{Fig_Approx}.d) goes through the origin (the horizontal and vertical wave-numbers simultaneously vanish) contradicting Figure \oldref{FigDispSolutions}.c: no dependency in $(\epsilon_i,\ \epsilon_a)$ is indeed maintained in the relation $\omega=\omega_{lsw}$. As this very crude approximation is partly relaxed with the fourth-order dependency in $(\epsilon_i,\ \epsilon_a)$ (grey dashed-dotted line on Figure \oldref{Fig_Approx}.d), the vertical wave-number $(\delta_z)$ vanishes for a finite horizontal wave-number $(\delta_x)$ when $\epsilon_i$ is not zero but still doe not agree with the numerical approximation shown in Figure (\oldref{FigDispSolutions}.c).\\
 
-\subsubsection{long surface waves ($\delta_z<<1$)}
+\subsubsection{long surface waves ($\delta_{z,i}<<1$)}
 
-\textit{Long Modified Surface Waves (MSW):}\\
+\textit{Long Modified Surface Waves (LMSW):}\\
 Swell-like relations do not provide an accurate modelling of the behaviour of long MSW. A more accurate description of this region of $(\delta_x,\ \delta_z,\ \omega)$ is required and figure (\oldref{FigDispSolutions}.d) suggests that a Taylor development with respect to $\delta_z$ should first be carried out. This means that the vertical attenuation scale of the wave remains large compared to the ocean depth. The Taylor approximation with respect to $\delta_z$ additionally annihilates the transcendental character of the dispersion relations and provides an analytical description of the behaviour of long surface waves:
 \begin{equation}
 	\label{Eqxxx}
-     \omega^2=\omega^2_{lmsw}= \delta_x^2 \left( 
- 		1+\frac{\delta_{z,i}^2}{3} (1 -\epsilon_i^2-\epsilon_a^2)
- 		-\frac{\epsilon_i^2+\epsilon_a^2}{2} \right)
- 		+ \mathrm{O}(\delta_{z,i}^4)
+     \omega^2=\omega^2_{lmsw}= 
+     -\epsilon_i^2+\frac{\epsilon_a^4-\epsilon_i^4}{4}
+     +\delta_x^2-\delta_{z,i}^2
+     +\delta_x^2\left( 
+ 		\frac{4\epsilon_a^2\delta_{z,i}^2}{3(2+\epsilon_i^2+\epsilon_a^2)^2}
+ 		-\frac{\epsilon_a^2}{2+\epsilon_i^2+\epsilon_a^2}
+ 	\right)
+ 	-\delta_{z,i}^2\frac{\epsilon_i^2}{3}
+ 	+ \mathrm{O}(\delta_{z,i}^4)
 \end{equation}
 This expression of $\omega^2$ can be substituted in the inner dispersion relation \ref{EqFullDisperai} without further approximation to obtain an analytical expression for $\delta_{z,i}$:
 \begin{subequations}
 	\begin{alignat}{2}
- 		& \delta_{z,i}^2 &&=\delta_{z,lmsw}^2(\delta_x)\\[3mm]
+ 		& \delta_{z,i}^2(\delta_x) &&=\delta_{z,lmsw}^2(\delta_x)\\[3mm]
 		\label{EqDispDeltaz0}
  		& &&=\frac{3}{4}
  		\frac{
@@ -1364,17 +1372,17 @@ $\delta_{z,i}$ consequently vanishes for:
 	12(4-\epsilon_a^4+4\epsilon_i^2+\epsilon_i^4)
 	}
 \end{equation}
-giving a lower bound for the surface wave solution. We note that no Taylor development has been carried out either with respect to $\epsilon_i$ and $\epsilon_a$ to provide an accurate description of the MSW. A parametric description for long MSW of the form $(\ \delta_z(\delta_x),\ \omega(\delta_x)\ )$ can be obtained by substituting \ref{EqDispDeltaz0} in \ref{Eqxxx}.\\
+giving a lower bound for the surface wave solution. We note that no Taylor development has been carried out either with respect to $\epsilon_i$ and $\epsilon_a$ to provide an accurate description of the MSW. A parametric description for long MSW of the form $(\ \delta_z(\delta_x),\ \omega(\delta_x)\ )$ can be obtained by substituting \ref{EqDispDeltaz0} in \ref{Eqxxx}. A simpler parameterized relation $\omega^2(\delta_x)$ can be obtained with a Taylor development with respect to $\epsilon_i$ and $\epsilon_a$.\\
 
-\textit{Long Modifed Internal Modes (MIM):}\\
+\textit{Long Modifed Internal Modes (LMIM):}\\
 For horizontal wave-number smaller than this lower bound, the graphical study carried out in section \ref{SectionGraphic} indicates that this MSW solution can be extended toward smaller horizontal wave-numbers by a gravity wave solution (MIM). The purely-imaginary vertical wave-number $\delta_z$ bifurcates in this case to a real value. Figure (\oldref{FigDispSolutions}.c) further indicates that for $\delta_x^2 \leq \delta_{x,lmsw}^2$, this solution is the intersection of the lower branch of the inner dispersion surface with the boundary dispersion surface providing an additional MIM solution for mode-number $n=0$. 
 The inner and dispersion relations \ref{EqFullDispera} and \ref{EqFullDisperb} for $\delta_z\in\mathbb{R}$ can be similarly expanded with respect to $\delta_z$ leading to:
 \begin{subequations}
 	\begin{alignat}{2}
 	\label{MIMomega2}
-     	& \omega_{lmim}^2(\delta_x,\ \delta_z) &&= \delta_x^2 \left( 
- 		1-\frac{\delta_{z}^2}{3} (1 -\epsilon_i^2-\epsilon_a^2)
- 		-\frac{\epsilon_i^2+\epsilon_a^2}{2} \right)
+     	& \omega_{lmim}^2(\delta_x,\ \delta_z) &&= \frac{2}{3}\delta_x^2 
+ 		\frac{6+2\delta_z^2+3(\epsilon_i^2+\epsilon_a^2)}
+ 		{2+(\epsilon_i^2+\epsilon_a^2)^2}
  		+ \mathrm{O}(\delta_{z,i}^4)\\[3mm]
 	\label{MIMdz2}
  	 &\delta_{z,lmim}^2(\delta_x) &&= -\ \delta_{z,lmsw}^2(\delta_x)
@@ -1406,7 +1414,7 @@ This long MIM branch intersects the $\delta_x=0$ plane for:
  		}
 \end{equation}
 
-A simpler expression can be derived by expending the $(\ \delta_{z,lmim}(\delta_x),\ \omega_{lmim}(\delta_x)\ )$ parametrization with respect to $\delta_x$ and $\epsilon_i\ -\ \epsilon_a$. This leads to a long-wave approximation of MIM of the form:
+A simpler expression can be derived by expending the $(\ \delta_{z,lmim}(\delta_x),\ \omega_{lmim}(\delta_x)\ )$ parametrization with respect to $\delta_x$ and $\epsilon_i\ -\ \epsilon_a$. This leads to a long-wave approximation of LMIM of the form:
 \begin{subequations}
 	\begin{alignat}{2}
 	\label{MIMomega}
@@ -1448,34 +1456,38 @@ Waves can propagate horizontally between the bottom and surface of the ocean as 
 We have then shown in Section \ref{SectionAnalyticalSol} that the root of the inner dispersion relation corresponding to internal gravity waves is well-approximated by $\omega_i^2$. This root can be substituted in the boundary dispersion relation \ref{EqFullDisperb} to obtain
 \begin{equation}
 	   \label{DispSysIntModesab}
-		\omega^2 \approx\omega_i^2=\frac{\epsilon_i^2 \delta_x^2}{\delta_x^2
+		\omega^2(\delta_x) \approx\omega_i^2\implies
+		\frac{\delta_x^2}
+		{\delta_z/\tan(\delta_z)+\frac{\epsilon_i^2+\epsilon_a^2}{2}}
+		\approx
+		\frac{\epsilon_i^2 \delta_x^2}{\delta_x^2
 		+\delta_z^2+\frac{1}{4}\left(
 		\epsilon_i^2+\epsilon_a^2\right)^2}
-		=\frac{\delta_x^2}
-		{\delta_z/\tan(\delta_z)+\frac{\epsilon_i^2+\epsilon_a^2}{2}}
 		%=\frac{\delta_x^2\tan(\delta_z)}
 		%{\delta_z+\frac{\epsilon_i^2+\epsilon_a^2}{2}\tan(\delta_z)}
 \end{equation}
 Since the right-hand-side decreases fast with $\delta_x$ and $\delta_z$, the vertical wave-number $\delta_z$ has to be close to $n\pi$ with $n$ a non-zero integer. This agrees with the internal gravity wave solution found graphically in Section \ref{SectionGraphic}.\\
-A Taylor development of relation \ref{DispSysIntModesab} with respect to $\delta_z$ is required in the vicinity of $\delta_{z,n}=n\pi$ to obtain an analytical relation of the form $\delta_z(\delta_x)$:
+A Taylor development of relation \ref{DispSysIntModesab} with respect to $\delta_z$ is required in the vicinity of $\delta_{z,n}^0=n\pi$ to obtain an analytical relation of the form $\delta_z(\delta_x)$:
  \begin{equation}
-	\delta_{z,n}=\delta_{z,n}^0\left(
+	\label{ParamallMIM1}
+	\delta_{z}(\delta_x)=\delta_{z,mim}(\delta_x)=\delta_{z,n}^0\left(
 	1+\frac{\epsilon_i^2}{\delta_x^2+\delta_{z,n}^2}
 	%+\frac{(\delta_x^2-\delta_{z,n}^2)}{(\delta_x^2+\delta_{z,n}^2)^3}\epsilon_i^4
 	\right)
 	+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)
 \end{equation}
-The pulsation $\omega$ can finally be expressed as a function of $\delta_x$ using the expression of the stratification function $\omega_i$:
+The pulsation can finally be expressed as a function of $\delta_x$ using the expression of the stratification function $\omega_i$:
 \begin{equation}
-	\omega^2=\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
+	\label{ParamallMIM2}
+	\omega^2(\delta_x)=\omega_{mim}^2(\delta_x)=\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
 	\left(1-\frac{2\epsilon_i^2\delta_{z,n}^2}{(\delta_x^2+\delta_{z,n}^2)^2}\right)
 	+\mathrm{O}	(\epsilon_i^6,\epsilon_a^4)
 \end{equation}
-At order 0 in $\epsilon_a$ and $\epsilon_i$, is recovered the expression of internal modes as expressed in many textbooks:
+	&\omega^2(\delta_x) &&=\omega^2_{im}(\delta_x) =\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
 \begin{subequations}
 	\begin{alignat}{2}	
-	&\delta_{z,n} &&=\delta_{z,n}^0\\
-	&\omega^2 &&=\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
+	&\delta_{z,im} &&=\delta_{z,n}^0\\
+	&\omega^2(\delta_x) &&=\omega^2_{im}(\delta_x) =\epsilon_i^2\frac{\delta_x^2}{\delta_x^2+\delta_{z,n}^2}
 	\end{alignat}
 \end{subequations}
 leading to the conclusion that the internal gravity modes are robust to compressibility since there is dependency to $\epsilon_a$ at orders lower than 4 vanishes. This agrees with the separation of the roots $\omega_\pm$ of the inner dispersion relation for real vertical wave-numbers.\\
@@ -1485,20 +1497,20 @@ A simpler parametric relation can further be found in the vicinity of $\delta_z=
 	\begin{alignat}{2}	
 	   \label{ParamMIM1}
 	   %
-		& \delta_z(\delta_x)=\delta_{z,lmim1}(\delta_x) &&= 
+		& \delta_z(\delta_x)=\delta_{z,lmim}(\delta_x) &&= 
 		\pi+\frac{\epsilon_i^2}{\pi} \left(
 		1-\frac{\delta_x^2}{\pi^2} \right)
 		+\mathrm{O}	(\delta_x^4,\epsilon_i^4,\epsilon_a^4)\\[3mm]
 		%
 	   \label{ParamMIM2}
-		& \omega(\delta_x)=\omega_{lmim1}(\delta_x) &&=\frac{\epsilon_i}{\pi} \delta_x
+		& \omega(\delta_x)=\omega_{lmim}(\delta_x) &&=\frac{\epsilon_i}{\pi} \delta_x
 		\left( 1
 		-\frac{\delta_x^2}{2\pi^2} \right)
 		+\mathrm{O}	(\delta_x^5,\epsilon_i^3,\epsilon_a^3)
 	\end{alignat}
 \end{subequations}
 For a vanishing horizontal wave-number, these parametric relations show that the pulsation vanishes too but the vertical wave-number is not exactly equal to $\pi$ but to $\pi+\epsilon_i^2/\pi$. As a consequence, $\delta_z$ varies with the square of the stratification parameter $(\epsilon_i)$.\\
-This approximate solution is plotted in figure (\oldref{Fig_Approx}.b) (red dash-dotted line) together with a sixth-order approximation in $\delta_x$ (red dashed line).
+This approximate solution is plotted in figure (\oldref{Fig_Approx}.b) (red dash-dotted line) together with the MIM approximation $(\ \delta_{z,mim}(\delta_x),\ \omega_{mim}(\delta_x)\ )$ (red dashed line). The latter MIM approximation cannot be distinguished from the numerical solution.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1517,29 +1529,21 @@ This approximate solution is plotted in figure (\oldref{Fig_Approx}.b) (red dash
 %	\end{alignat}
 %\end{subequations}
 
-In Section \ref{SectionGraphic}, the inner and boundary dispersion surfaces have been shown (numerically) to intersect (blue line in figure \oldref{FigDispSolutions}) leading to a Modified Acoustic Mode (MAM). This solution is now derived analytically and its characteristics further investigated.
-The root that corresponds to acoustic waves can advantageously be approximated by isolating $\delta_x^2$  in the inner and boundary dispersion relations:
-\begin{equation}
-	   \label{DispSysAcousModes12}
-		\delta_x^2 = \frac{\omega^2}
-		{\epsilon_i^2-\omega^2}
-		\left(\frac{(\epsilon_i^2+\epsilon_a^2)^2}{4}-\omega^2\right)
-		=\omega^2\left(\frac{\epsilon_i^2+\epsilon_a^2}{2}+\delta_z cot(\delta_z)\right)
-\end{equation}
-
 \textit{Smith-like MAM (large pulsations)}\\
-In a similar way as in the previous subsection, Relation \ref{DispSysAcousModes12} is transcendental in $\delta_z$ but its Taylor expansion successively (i) for $\delta_{z,m} \approx \pi/2+m\pi$ , (ii) for large $\omega$ and (iii) for small parameters $(\epsilon_i^2,\ \epsilon_a^2)$ can be written as an analytical expression of the form $\delta_z(\omega)$:
+In Section \ref{SectionGraphic}, a numerical approximation of the intersection of the inner and boundary dispersion surfaces has been computed and plotted (blue line in figure \oldref{FigDispSolutions}). This intersection has been shown to correspond to Modified Acoustic Mode (MAM). MAM is now derived analytically and its characteristics are further investigated. An iterative method is chosen. A first approximation of $\delta_x^2(\omega)$ by crudely assuming $\delta_z(\omega)\approx\delta_{z,m} = \pi/2+m\pi$. Then $\delta_x^2( \omega)$ is substituted in a second-order Taylor expansion of the boundary dispersion relation \ref{EqFullDisperb} to obtain a more accurate approximation of $\delta_z(\omega)$. Its Taylor expansion (i) for large $\omega$ and (ii) for small parameters $(\epsilon_i^2,\ \epsilon_a^2)$ leads to:
 \begin{equation}
-	\delta_z = \delta_{z,m}  \left(1+\frac{1}{\omega^2}-\frac{\epsilon_a^2}{2\delta_{z,m}^2}\right)
+	\delta_z(\omega) = 
+	\delta_{z,m}\left(1+\frac{1}{\omega^2}\right)
+	+\frac{\epsilon_i^2-\epsilon_a^2}{2\delta_{z,m}}\left(1-\frac{1}{\omega^2} \right)
 	+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)
 \end{equation}
 This relation agrees with the acoustic-gravity modes derived by Smith (2013) (first two terms). It additionally shows that these modes are not modified bellow order 4 in $\epsilon_i$ by the stratification and gives the second order dependency in $\epsilon_a$.\\
-The square of the horizontal wave-number $\delta_x^2$ can further be expressed as a function of the pulsation $\omega$:
+A more accurate approximation of $\delta_x^2(\omega)$ can further be calculated by once again substituting $\delta_z(\omega)$ in the inner dispersion \ref{EqFullDispera} leading to:
 \begin{equation}
-	\delta_x^2 = \epsilon_a^2\omega^2
+	\delta_x^2(\omega) = \epsilon_a^2\omega^2
 	-\delta_{z,m}^2\left(1+\frac{2}{\omega^2}\right)
-	+\epsilon_a^2\left(1+\frac{1}{\omega^2}\right)
-	-\epsilon_i^2\left(1+\frac{1+\delta_{z,m}^2}{\omega^2}\right)
+	+\epsilon_a^2\left(1-\frac{1}{\omega^2}\right)
+	-\epsilon_i^2\left(1+\frac{\delta_{z,m}^2-1}{\omega^2}\right)
 	+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)
 \end{equation}
 This latter expression shows a second-order dependency of the squared pulsation in the stratification parameter $\epsilon_i$.\\
