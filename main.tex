@@ -154,15 +154,15 @@ The treatment of the free-surface boundary can yet be much trickier. Small-ampli
 	\setlength{\extrarowheight}{15pt}
 	\begin{tabular} {c|c|c|c}
 		Acronym & Name & Dispersion relations & Parametrized relations \\\hline
-		MAW & Modified Acoustic Wave & \ref{DispAcousDT} & \ref{DispAcousDT}\\
-		MIW & Modified Internal Wave ray & \ref{DispRaysDT} & \ref{DispRaysDT}\\\hline
-		MAM & Modified Acoustic Mode $(m=1)$& \ref{DispSysAcousModes12} & LMAM (\oldref{ParamLMAM1}, \oldref{ParamLMAM2}),\\
+		MAW & Modified Acoustic Wave & \ref{DispAcousDT} & MAW \ref{DispAcousDT}\\
+		MIW & Modified Internal Wave ray & \ref{DispRaysDT} & MIW \ref{DispRaysDT}\\\hline
+		MAM & Modified Acoustic Mode $(m=1)$& (\oldref{EqFullDispera} \& \oldref{EqFullDisperb}) & LMAM (\oldref{ParamLMAM1}, \oldref{ParamLMAM2}),\\
 		& & & SMAM (\oldref{ParamSMAM1}, \oldref{ParamSMAM2})\\
-		MSW & Modified Surface Wave & \ref{EqFullDisperai} \& \ref{EqFullDisperbi} & \ref{EqDispLonga1} \& \ref{Eqdzdx2} \\
-		LMSW & Long Modified Surface Wave & \ref{EqFullDisperai} \& \ref{EqFullDisperbi} & \ref{Eqxxx} \& \ref{EqDispDeltaz0} \\
-		MIM & Modified Internal Mode $(n=1)$  & \ref{DispSysIntModesab} & MIM (\oldref{ParamallMIM1}, \oldref{ParamallMIM2}),\\
+		MSW & Modified Surface Wave & \ref{EqFullDisperai} \& \ref{EqFullDisperbi} & MSW (\oldref{EqDispLonga1} \& \oldref{Eqdzdx2}) \\
+		LMSW & Long Modified Surface Wave & \ref{EqFullDisperai} \& \ref{EqFullDisperbi} & LMSW (\oldref{Eqxxx} \& \oldref{EqDispDeltaz0}) \\
+		MIM & Modified Internal Mode $(n=1)$  & (\oldref{EqFullDispera} \& \oldref{EqFullDisperb}) & MIM (\oldref{ParamallMIM1}, \oldref{ParamallMIM2}),\\
 		& & & LMIM (\oldref{ParamMIM1}, \oldref{ParamMIM2})\\
-		LMIM0 & Long Gravity Oscillation (LMIM 0)& \ref{EqFullDispera} \& \ref{Eqxxx} & LMIM (\oldref{MIMomega2}, \oldref{MIMdz2})\\
+		LMIM0 & Long Gravity Oscillation (LMIM 0)& \ref{EqFullDispera} \& \ref{Eqxxx} & LMIM0 (\oldref{MIMomega2}, \oldref{MIMdz2})\\
 	\end{tabular}
 	
 	\caption{Acronyms of modified wave and modes.}
@@ -1374,18 +1374,18 @@ $\delta_{z,i}$ consequently vanishes for:
 \end{equation}
 giving a lower bound for the surface wave solution. We note that no Taylor development has been carried out either with respect to $\epsilon_i$ and $\epsilon_a$ to provide an accurate description of the MSW. A parametric description for long MSW of the form $(\ \delta_z(\delta_x),\ \omega(\delta_x)\ )$ can be obtained by substituting \ref{EqDispDeltaz0} in \ref{Eqxxx}. A simpler parameterized relation $\omega^2(\delta_x)$ can be obtained with a Taylor development with respect to $\epsilon_i$ and $\epsilon_a$.\\
 
-\textit{Long Modifed Internal Modes (LMIM):}\\
+\textit{Long Modifed Internal Modes (LMIM0):}\\
 For horizontal wave-number smaller than this lower bound, the graphical study carried out in section \ref{SectionGraphic} indicates that this MSW solution can be extended toward smaller horizontal wave-numbers by a gravity wave solution (MIM). The purely-imaginary vertical wave-number $\delta_z$ bifurcates in this case to a real value. Figure (\oldref{FigDispSolutions}.c) further indicates that for $\delta_x^2 \leq \delta_{x,lmsw}^2$, this solution is the intersection of the lower branch of the inner dispersion surface with the boundary dispersion surface providing an additional MIM solution for mode-number $n=0$. 
 The inner and dispersion relations \ref{EqFullDispera} and \ref{EqFullDisperb} for $\delta_z\in\mathbb{R}$ can be similarly expanded with respect to $\delta_z$ leading to:
 \begin{subequations}
 	\begin{alignat}{2}
 	\label{MIMomega2}
-     	& \omega_{lmim}^2(\delta_x,\ \delta_z) &&= \frac{2}{3}\delta_x^2 
+     	& \omega_{lmim0}^2(\delta_x,\ \delta_z) &&= \frac{2}{3}\delta_x^2 
  		\frac{6+2\delta_z^2+3(\epsilon_i^2+\epsilon_a^2)}
  		{2+(\epsilon_i^2+\epsilon_a^2)^2}
  		+ \mathrm{O}(\delta_{z,i}^4)\\[3mm]
 	\label{MIMdz2}
- 	 &\delta_{z,lmim}^2(\delta_x) &&= -\ \delta_{z,lmsw}^2(\delta_x)
+ 	 &\delta_{z,lmim0}^2(\delta_x) &&= -\ \delta_{z,lmsw}^2(\delta_x)
  	\end{alignat}
 \end{subequations}
 where $\delta_{z,lmsw}(\delta_x)$ is given by \ref{EqDispDeltaz0} and a parametric description of this MSW solution of the form $(\ \delta_z(\delta_x),\ \omega(\delta_x)\ )$ can similarly be obtained by substituting \ref{MIMomega2} into \ref{MIMdz2}. The resulting parametrization $(\delta_{z,mim}(\delta_x),\ \omega_{mim}(\delta_x))$ does not lead to a simple formulation of MIM for $\delta_z\approx0$ and it is consequently only plotted on Figure (\oldref{Fig_Approx}.d) with a pink-solid line. This line cannot be distinguished from the numerical solution (red-solid line). This approximation leads to an accurate representation of long MIM (for small $\delta_x$). The bifurcation point (where $\delta_z$ vanishes) is also well represented.\\
