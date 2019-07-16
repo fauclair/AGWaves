@@ -315,7 +315,7 @@ Two usual decompositions are thus now formalized for pressure \ref{decompoP_f} a
   +g\int_z^{\zeta}{\rho_{h}{(\mathbf{x},t)}\ dz}}_{p_h(\mathbf{x},t)}
   +\delta p(\mathbf{x},t)\\[3mm]
   & &&= \underbrace{
-  \underbrace{\displaystyle \hat{\rho}_h(z) g (\zeta-z)}_{\hat{p}_h(z)}
+  \underbrace{g\int_z^{\zeta}{\displaystyle \hat{\rho}_h(z)}dz}_{\hat{p}_h(z)}
   +\underbrace{g\int_z^{\zeta}{\left(\rho_{h}{(\mathbf{x},t)}-\hat{\rho}_h(z)\right)\ dz}}
   _{p_h'(\mathbf{x},t)}}_{p_h(\mathbf{x},t)}
   +\delta p(\mathbf{x},t)\\[3mm]
@@ -456,7 +456,7 @@ Based on the pressure and density decompositions proposed in subsection \ref{Sub
     & \frac{\partial p}{\partial t} &&\approx
  -c_s^{2}\big(\frac{\partial \hat{\rho}_h u}{\partial x}
  +\frac{\partial \hat{\rho}_h w}{\partial z}\big)
- -\overbrace{\frac{c_s^2 N_c^2}{g}}^{c_s^2 \frac{N^2}{g}-g}\hat{\rho}_hw
+ -\overbrace{\left(\frac{c_s^2}{D(z)}-g\right)}^{\frac{c_s^2 N_c^2}{g}}\hat{\rho}_hw
   \end{alignat}
 \end{subequations}
 with the bottom and surface relations:
@@ -521,7 +521,7 @@ These relations can be substituted in propagation model \ref{WM_a} to \ref{WM_d}
   \widetilde{W}''(z)+\frac{1}{D(z)}\widetilde{W}'(z)
   +
   \left(
-  k_x^2\frac{N^2-\Omega^2}{\Omega^2}+\frac{\Omega^2}{c_s^2}
+  k_x^2\frac{N_c^2-\Omega^2}{\Omega^2}+\frac{\Omega^2}{c_s^2}
   -\frac{D'(z)}{D^2(z)}
   \right)
   \widetilde{W}(z)=0
@@ -539,21 +539,13 @@ The unknown function $F(z)$ satisfies:
   \displaystyle
   F''(z)
   +\left(
-  k_x^2\frac{N^2-\Omega^2}{\Omega^2}
+  k_x^2\frac{N_c^2-\Omega^2}{\Omega^2}
   +
   \frac{\Omega^2}{c_s^2}-\frac{1+2D'(z)}{4D(z)^2}
   \right)
   F(z)=0
   \label{eqF}
 \end{equation}
-
-In the following sections, $D(z)\approx D_0$ should be quasi-constant and relation \ref{CVF} can be rewritten:
-\begin{equation}
-  \displaystyle
-  \widetilde{W}(z)=e^{-\frac{z}{2D_0}}F(z)
-  \label{CVF2}
-\end{equation}
-showing that the larger the stratification (i.e. the larger $D(z)$), the smaller the vertical extent of the wave. The stratification classically prevent vertical propagation.\\
 
 \textit{Boundary dispersion relation:}\\
 The polarization relations must also be substituted in the surface boundary condition \ref{WM_bc_b} leading to:
@@ -583,8 +575,14 @@ The bottom boundary condition \ref{WM_bc_a} simply leads to:
   \label{eqFbc2}
 \end{equation}
 
-\textit{In summary:}
-
+\textit{$D(z)\approx D_0$:}
+In the following sections, $D(z)\approx D_0$ should be quasi-constant and relation \ref{CVF} can be rewritten:
+\begin{equation}
+  \displaystyle
+  \widetilde{W}(z)=e^{-\frac{z}{2D_0}}F(z)
+  \label{CVF2}
+\end{equation}
+showing that the larger the stratification (i.e. the larger $D(z)$), the smaller the vertical extent of the wave. The stratification classically prevent vertical propagation.\\
 The general expression of the vertical velocity perturbation profile for a constant scale height $D(z)$ is
 \begin{equation}
   \displaystyle
@@ -616,7 +614,7 @@ When the Brunt-V\"ais\"al\"a frequency $N$ is constant, the scale-depth is const
 	\label{EqDimFa}
     F''(z)
     +
-   \overbrace{ \left(k_x^2\frac{N^2-\Omega^2}{\Omega^2}+\frac{\Omega^2}{c_s^2}-\frac{1}{4D_0^2}\right)}^{\equiv k_z^2}
+   \overbrace{ \left(k_x^2\frac{N_c^2-\Omega^2}{\Omega^2}+\frac{\Omega^2}{c_s^2}-\frac{1}{4D_0^2}\right)}^{\equiv k_z^2}
     F(z)=0\\[4mm]
 	\label{EqDimFb}
     \displaystyle
@@ -632,7 +630,7 @@ where the vertical wave-number $k_z$ has been defined postulating that the solut
 \begin{equation}
   \label{EqDispRefInner}
   \displaystyle
-   k_x^2\left(1-\frac{N^2}{\Omega^2}\right)+k_z^2
+   k_x^2\left(1-\frac{N_c^2}{\Omega^2}\right)+k_z^2
    -\frac{\Omega^2}{c_s^2}+\frac{1}{4D_0^2}=0
 \end{equation}
 This relation does not take into account the boundary conditions at the surface nor at the bottom and consequently only deals with the propagation of waves in the inner ocean. It shall now be referred to as the \textit{inner dispersion relation}.
@@ -1527,17 +1525,23 @@ This approximate solution is plotted in figure (\oldref{Fig_Approx}.b) (red dash
 %\end{subequations}
 
 \textit{Smith-like MAM (large pulsations)}\\
-In Section \ref{SectionGraphic}, a numerical approximation of the intersection of the inner and boundary dispersion surfaces has been computed and plotted (blue line in figure \oldref{FigDispSolutions}). This intersection has been shown to correspond to Modified Acoustic Mode (MAM). MAM is now derived analytically and its characteristics are further investigated. An iterative method is chosen. A first approximation of $\delta_x^2(\omega)$ by crudely assuming $\delta_z(\omega)\approx\delta_{z,m} = \pi/2+m\pi$. Then $\delta_x^2( \omega)$ is substituted in a second-order Taylor expansion of the boundary dispersion relation \ref{EqFullDisperb} to obtain a more accurate approximation of $\delta_z(\omega)$. Its Taylor expansion (i) for large $\omega$ and (ii) for small parameters $(\epsilon_i^2,\ \epsilon_a^2)$ leads to:
+In Section \ref{SectionGraphic}, a numerical approximation of the intersection of the inner and boundary dispersion surfaces has been computed and plotted (blue line in figure \oldref{FigDispSolutions}). This intersection has been shown to correspond to Modified Acoustic Mode (MAM). An analytical parametrization is now derived for MAM with an iterative method and its characteristics are further investigated. Assuming that $\delta_z(\omega)\approx\delta_{z,m} \equiv \pi/2+m\pi$, a first approximation of $\delta_x^2(\omega)$ can be found based on a Taylor expansion with respect to $\epsilon_i$ and \epsilon_a$:
 \begin{equation}
-	\delta_z(\omega) = 
-	\delta_{z,m}\left(1+\frac{1}{\omega^2}\right)
+    \delta_{x}^2(\omega) = \underbrace{\epsilon_a^2\omega^2
+    -\delta_{z,m}^2\left(1+\frac{1}{\omega^2}\right)}_{\equiv\delta_{x,smith}^2(\omega)}
+    	+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)
+\end{equation}
+Smith's expression (2.10) (Smith, 2015) for the horizontal wave-number of such a mode is recovered. This first approximation can be substituted in a second-order Taylor expansion of the boundary dispersion relation \ref{EqFullDisperb} to obtain a more accurate approximation of $\delta_z(\omega)$. Its Taylor expansion (i) for large $\omega$ and (ii) for small parameters $(\epsilon_i^2,\ \epsilon_a^2)$ leads to:
+\begin{equation}
+	\delta_{z}(\omega)=\delta_{z,mam}(\omega) = 
+	\underbrace{\delta_{z,m}\left(1+\frac{1}{\omega^2}\right)}_{\equiv\delta_{z,smith}}
 	+\frac{\epsilon_i^2-\epsilon_a^2}{2\delta_{z,m}}\left(1-\frac{1}{\omega^2} \right)
 	+\mathrm{O}	(\epsilon_i^4,\epsilon_a^4)
 \end{equation}
-This relation agrees with the acoustic-gravity modes derived by Smith (2013) (first two terms). It additionally shows that these modes are not modified bellow order 4 in $\epsilon_i$ by the stratification and gives the second order dependency in $\epsilon_a$.\\
+where $\delta_{z,smith}$ is also defined in dimensional form in Table \ref{TableWave solutions}. This relation agrees with the acoustic-gravity modes derived by Smith (2013) (first two terms of the above relation correspond to Smith's relation (2.9)). It additionally shows that these modes are not modified bellow order 4 in $\epsilon_i$ by the stratification and gives the second order dependency in $\epsilon_a$.\\
 A more accurate approximation of $\delta_x^2(\omega)$ can further be calculated by once again substituting $\delta_z(\omega)$ in the inner dispersion \ref{EqFullDispera} leading to:
 \begin{equation}
-	\delta_x^2(\omega) = \epsilon_a^2\omega^2
+	\delta_x^2(\omega)=\delta_{x,mam}^2(\omega) = \epsilon_a^2\omega^2
 	-\delta_{z,m}^2\left(1+\frac{2}{\omega^2}\right)
 	+\epsilon_a^2\left(1-\frac{1}{\omega^2}\right)
 	-\epsilon_i^2\left(1+\frac{\delta_{z,m}^2-1}{\omega^2}\right)
@@ -1546,7 +1550,8 @@ A more accurate approximation of $\delta_x^2(\omega)$ can further be calculated 
 This latter expression shows a second-order dependency of the squared pulsation in the stratification parameter $\epsilon_i$.\\
 
 \textit{Short and long wave approximations of MAM (parametrization)}\\
-Like modified surface and internal gravity waves, modified acoustic waves can be parametrized. Two regions, and thus two physical behaviours, must yet be distinguished. In the vicinity of the origin first $\delta_z$ and $\omega$ can be expressed as functions of $\delta_x$ and of the parameters $(\epsilon_i,\ \epsilon_a)$:
+
+Approximated parametrizations can be found directly for MAM with large pulsation (LMAM) or small horizontal wave-number (SMAM). Two regions, and thus two physical behaviours, can indeed be distinguished. In the vicinity of the origin first $\delta_z$ and $\omega$ can be expressed as functions of $\delta_x$ and of the parameters $(\epsilon_i,\ \epsilon_a)$:
 \begin{subequations}
 	\label{ParamAcousModes1}
 	\begin{alignat}{2}	
