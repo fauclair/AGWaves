@@ -575,7 +575,7 @@ The bottom boundary condition \ref{WM_bc_a} simply leads to:
   \label{eqFbc2}
 \end{equation}
 
-\textit{$D(z)\approx D_0$:}
+\textit{Constant Brunt-Väisälä pulsation:}\\
 In the following sections, $D(z)\approx D_0$ should be quasi-constant and relation \ref{CVF} can be rewritten:
 \begin{equation}
   \displaystyle
@@ -789,12 +789,26 @@ For small $\epsilon_i$ and $\epsilon_a$ parameters, these two roots can be compa
 \end{subequations}
 with $(p,\ q)\in\{2,\ 4,\ 6\}^2$. These Taylor developments show that the first root $(\omega_+)$ approaches the \textit{acoustic function} $(\omega_a)$ when the stratification loosen ($\epsilon_i$ tends toward 0). Both $\omega_+$  and $\omega_a$ approach infinity when $\epsilon_a$ tends toward zero (i.e. when compressibility vanishes). The second root $(\omega_-)$ approaches the \textit{stratification function} $(\omega_i)$ when $\epsilon_a$ tends toward zero. $\omega_-$, $\omega_i$ and their difference approach 0 when $\epsilon_a$ tends toward zero (i.e. when stratification weakens). The second term of \ref{eqlink} vanishes this time if the pulsation $\omega$ remains finite.\\
 However we cannot conclude that $\omega_+$ ($\omega_-$) can be approximated by $\omega_a$ (receptively $\omega_i$). Indeed, the sum of the square of the wave-numbers at the denominator of the right-hand-sides of the above relations can be arbitrarily small (even for large $\delta_x$) if $\delta_z\in i \ \mathbb{R}$. In this case the roots $(\omega_\pm)$ might not be well-approximated by $\omega_a$ and $\omega_i$.\\
-To proceed, the dependency of the form and solutions of the inner dispersion relation to the vertical wave-number $\delta_z$ consequently needs to be investigated. 
+To proceed, the dependency of the form and solutions of the inner dispersion relation to the vertical wave-number $\delta_z$ consequently needs to be investigated.
 
-\subsection{Classification based on vertical wave-number $\delta_z$}
+\subsection{Dispersion surfaces in $(\delta_x,\ \delta_z,\ \omega)$ phase space}
+\label{SubSectionDispSurfIntro}
+
+In an unbounded ocean (far from the bottom and of the surface of the ocean), ocean waves only need to satisfy the inner-ocean dispersion relation \ref{EqFullDispera}. Pure internal and acoustic waves are examples of such waves. Many more types of waves can propagate in the ocean but if this assumption is relaxed, waves must satisfy simultaneously the inner and the bottom dispersion relations. These waves can basically be divided in two categories. The first category gathers evanescent waves which do not propagate vertically. Their vertical wave-number is a pure-imaginary complex $(\delta_z\in i\mathbb{R})$. Waves from the second category are usually called "wave modes": they do not propagate vertically either but their vertical wave-number must be "quantified" to satisfy the bottom and surface boundary conditions: it is solution of a discrete eigenvalue problem. As already stated in the introductory review, internal-gravity and acoustic-gravity modes are well-known examples of such modes.\\
+
+Ocean waves can consequently propagate in a $(x,\ z)$ vertical section of a "bounded ocean" if the triplet of wave-properties $(\delta_x,\ \delta_z,\ \omega)$ satisfy the 2 relations \ref{EqFullDispera} and \ref{EqFullDisperb}. This leaves only one degree of freedom to impose forcing (against two for waves propagating in an unbounded ocean). In the rather general context of a stratified and compressible ocean, two parameters $(\epsilon_i,\ \epsilon_a)$ have been identified to render the relative impact of gravity and compressibility in the propagation mechanism. The resulting set of two equations of three variables and two parameters is non-linear and simple general solution cannot be carried out analytically. Much insight can yet be gained in these ocean waves investigating geometrically the inner and boundary surfaces associated to the corresponding dispersion relations. \\
+Indeed, in $(\delta_x,\  \delta_z,\ \omega)$ phase-space, the inner and boundary dispersion relations are respectively given by two surfaces. When these two surfaces intersect, points lying on this intersection are triplets of wave solutions. The surfaces associated respectively to the inner and boundary relations shall now respectively be named the \textit{inner and boundary dispersion surfaces}.\\
+
+Several difficulties can be anticipated. Firstly, one already noted in subsection \ref{SubSectionDisp} that the inner dispersion relations were fourth-order relations in $(\delta_x,\ \delta_z,\ \omega)$, a consequence being that the corresponding surfaces are quartics and shall only be associated locally to simpler, well-known quadric surfaces (i.e. under further assumptions that will have to be clearly stated). Intersections and roots can indeed be simply derived analytically in this latter case. A consequence is that several local approximations will have be proposed, each corresponding to one type of waves associated to one set of parameters. A second major difficulty to carry out some analytical investigation is that the boundary dispersion relation is a transcendental relation and the intersections with the inner dispersion surface, when they exist, can not be easily derived and further investigation  requires additional assumptions.\\ 
+\newpage
+
+\section{Inner dispersion relation \& wave in an unbounded ocean}
 To further investigate the inner dispersion relation \ref{EqFullDispera}, the evolution of the vertical wave-number $\delta_z$ as a function of the horizontal wave-number $\delta_x$ and of the pulsation $\omega$ is now further investigated. Note that the case of long waves will be considered separately in the following sections so that $\delta_x$ and $\delta_z$ do not need to be simultaneously small to start with.
 
-\subsubsection{Three regions in $(\delta_x,\ \delta_z,\ \omega)$ phase-space}
+\subsection{Branches of the inner dispersion relation: compressibility \& stratification.}
+\subsection{}
+\subsection{Branches of the inner dispersion relation}
+\subsection{Three regions in $(\delta_x,\ \delta_z,\ \omega)$ phase-space}
 \label{SubSectionDeltaz}
 \begin{figure}[!h]
 	\centering	
@@ -813,13 +827,13 @@ Figure \ref{FigContourdz} shows the variations of the square of the vertical wav
 	In dimensional form, this latter bound can be rewritten $\Omega\leq N$ and can be related to the well-known cut-off pulsation for internal gravity waves (Dukowicz, 2013).
 \end{itemize}
 
-\subsubsection{Real vertical wave-number $(\delta_z\in\mathbb{R})$}
+\subsection{Real vertical wave-number $(\delta_z\in\mathbb{R})$}
 Figure \ref{FigContourdz} presents the evolution of the square of the vertical wave-number as a function of $\delta_x$ and $\omega$. Two regions of positive $(\delta_z^2)$ are separated by one region of negative $(\delta_z^2)$. Dispersion relations (\oldref{EqFullDispera} - \oldref{EqFullDisperb}) therefore authorize three types of wave solutions: two with real vertical wave-numbers $(\delta_z^2\geq0)$ and one with pure-imaginary wave-numbers $(\delta_z^2<0)$. \\
 
-If $\epsilon_i$ or $\epsilon_a$ are non zero, the ratio of the factorizing functions $\displaystyle R^2(\delta_x,\delta_z)$ \ref{eqratio} has an upper bound:
+The ratio of the factorizing functions $\displaystyle R^2(\delta_x,\delta_z)$ \ref{eqratio} depends on two variables $(\delta_x,\ \delta_z)$ and two parameters $(\epsilon_i,\ \epsilon_a)$. A careful study of its variations for $(\delta_x,\ \delta_z)\in \mathbb{C}^2$ shows that it has an upper bound for non-vanishing $(\epsilon_i,\ \epsilon_a)$:
 \begin{equation}
 	 R^2(\delta_x,\delta_z) \leq
-	\frac{4\epsilon_a^2\epsilon_i^2}{\left
+	\frac{\epsilon_a^2\epsilon_i^2}{\left
 	(\epsilon_a^2+\epsilon_i^2
 	\right)^2}
 \end{equation}
@@ -832,7 +846,7 @@ A first consequence is that for small, strictly-positive, parameters $\epsilon_i
 	%\right)^2} 
 	\leq
 	\frac{1}{4}
-	\frac{16\epsilon_a^2\epsilon_i^2}{\epsilon_a^4+2\epsilon_a^2\epsilon_i^2+\epsilon_i^4} 
+	\frac{\epsilon_a^2\epsilon_i^2}{\epsilon_a^4+2\epsilon_a^2\epsilon_i^2+\epsilon_i^4} 
 	%\leq
 	%\frac{1}{4}
 	%\frac{16\epsilon_a^2\epsilon_i^2}{2\epsilon_a^2\epsilon_i^2} 
@@ -840,16 +854,10 @@ A first consequence is that for small, strictly-positive, parameters $\epsilon_i
 	\frac{1}{4}
 \end{equation}
 Both roots are real and distinct whatever $\delta_x$ and $\delta_z$. Still for small, strictly-positive, parameters, another consequence is that:
-\begin{subequations}
-	\begin{alignat}{2}	
-	&\omega_{+}^2-\omega_{-}^2 &&=\omega_a^2\sqrt{1-4 R^2}\\[3mm]
+\begin{equation}
+    \omega_{+}^2-\omega_{-}^2 =\omega_a^2\sqrt{1-4 R^2}
 	\label{deltaomegapm}
-	& &&\geq \frac{(\epsilon_a^2+\epsilon_i^2)^2}{4\epsilon_a^2}
-	\sqrt{1-\frac{16\epsilon_a^2\epsilon_i^2}{\left
-	(\epsilon_a^2+\epsilon_i^2
-	\right)^2}}>0
-	\end{alignat}
-\end{subequations}
+\end{equation}
 and the two (real) solutions are always well-separated in $(\delta_x,\ \delta_z,\ \omega$) phase space.\\
 When $(\delta_x,\ \delta_z)\in \mathbb{R}^2$, Relations \ref{Comp1} and \ref{Comp2} can now be used to conclude that for small $\epsilon_i$ and $\epsilon_a$ parameters:
 \begin{equation}
@@ -858,7 +866,7 @@ When $(\delta_x,\ \delta_z)\in \mathbb{R}^2$, Relations \ref{Comp1} and \ref{Com
 	(\delta_x,\ \delta_z)
 \end{equation}
 
-\subsubsection{Pure-imaginary vertical wave-number $(\delta_z\in i\ 
+\subsection{Pure-imaginary vertical wave-number $(\delta_z\in i\ 
 \mathbb{R})$}
 \label{subsubsectioniR}
 
@@ -878,11 +886,6 @@ If now $\delta_z$ is a pure-imaginary complex, it can be written $\delta_z=i\del
 \end{subequations}
 When the horizontal and vertical wave-numbers are close to each other, the first (inner) dispersion relation shows that the left-hand-side and thus the right-hand-side both vanish. This means that that the influence of the stratification $(\epsilon_i^2\delta_x^2/\omega^2-(\epsilon_a^2+\epsilon_i^2)^2/4)$ and that of the compressibility $(\epsilon_a^2\omega_a^2)$ are cancelled out. In other words, differences in between the horizontal and vertical waves-numbers are an indication of the influence of the stratification and/or of the compressibility of the ocean. In an homogeneous, homogeneous (unstratified) ocean, vertical and horizontal wave-numbers can be chosen equal.\\
 
-If $\delta_z\in i\ \mathbb{R}$, \ref{EqFullDisperai} does not necessarily have two real roots. Indeed it can vanish for $R^2=1/4$ or:
-\begin{equation}
-	\delta_x^2-\delta_{z,i}^2=2\epsilon_a\epsilon_i\delta_x 
-	-\frac{(\epsilon_i^2+\epsilon_a^2)^2}{4}
-\end{equation} 
 When the inner dispersion relation \ref{EqFullDisperai} has real roots (i.e. $R^2\leq1/4$), the wave solutions do not propagate vertically, they are \textit{vertically-evanescent} and can only propagate horizontally. The roots $\omega_{\pm}(\delta_x,\ i\delta_{z,i})$ are not well-separated anymore but they are bounded by $\omega_{i}(\delta_x,\ \delta_{z,i})$ and $\omega_{a}(\delta_x,\ \delta_{z,i})$. Indeed,  from Relation \ref{deltaomegapm}: $\omega_{-}^2(\delta_x,\ i\delta_{z,i})\leq\omega_{+}^2(\delta_x,\ i\delta_{z,i})$ and from Relations \ref{Comp1} and \ref{Comp2}: $\omega_+^2(\delta_x,\ i\delta_{z,i})\leq\omega_a^2(\delta_x,\ i\delta_{z,i})$ and $\omega_i^2(\delta_x,\ i\delta_{z,i})\leq\omega_-^2(\delta_x,\ i\delta_{z,i})$:
 \begin{subequations}
 	\begin{alignat}{2}	
@@ -918,7 +921,12 @@ leading eventually to:
 
 Note above that the acoustic and stratification functions $\omega_a$ and $\omega_i$ which bounds the relation, are chosen for an equivalent wave of real vertical wave-number $\delta_{z,i}$.
 As a consequence, for a given horizontal wave-number $\delta_x$, a vertically-vanishing wave $(\delta_z\in i\mathbb{R})$ can propagate with a pulsation smaller than the acoustic function $\omega_{a}(\delta_x,\ \delta_{z,i})$ and larger than the stratification function $\omega_{i}(\delta_x,\ \delta_{z,i})$. This inversely confirms the separation of the two wave-solutions for $\delta_z\in \mathbb{R}$: a vanishing wave-solution can be found in between.\\
-The remaining question is that of the separation of the roots when $\delta_z\in i\ \mathbb{R}$: unlike for real vertical wave-numbers, if  $(R^2=1/4)$, the inner dispersion relation \ref{EqFullDisperai} has a double root and $\omega_+ = \omega_-$.\\
+The remaining question is that of the separation of the roots when $\delta_z\in i\ \mathbb{R}$. Unlike when $\delta_z\in \mathbb{R}$ (previous sub-section), the ratio $R^2(\delta_x,\ i\ \delta_{z,i})$ can be equal to $1/4$ when:
+\begin{equation}
+	\delta_x^2-\delta_{z,i}^2=2\epsilon_a\epsilon_i\delta_x 
+	-\frac{(\epsilon_i^2+\epsilon_a^2)^2}{4}
+\end{equation} 
+and the inner dispersion relation \ref{EqFullDisperai} has a double root leading to $\omega_+ = \omega_-$.
 Far from this region, i.e. if can find a strictly-positive constant $\alpha$ such that:
 %i.e. if we can find $\alpha>0$ such that $R^2\leq 1/4(1-\alpha^2)$ or in $(\delta_x,\ \delta_z,\ \omega)$ phase-space (sufficient relation):
 \begin{equation}
@@ -947,6 +955,10 @@ Then the relations \ref{Comp1} and \ref{Comp2} with \ref{regsepi} lead to two ad
 	\end{alignat}	
 \end{subequations}
 These relations show that for $\delta_z\in i\ \mathbb{R}$, the roots are well-separated in the region of phase-space far enough from the plane $\delta_x=\delta_{z,i}$ \ref{regsepi} and, in such a region, the root $\omega_+$ (respectively $\omega_-$) can be as close as required from the acoustic (stratification) function if $\delta_x$ is decreased (respectively increased).
+
+
+%\ref{EqFullDisper} has indeed a double ro
+%If $\delta_z\in i\ \mathbb{R}$, \ref{EqFullDisperai} does not necessarily have two real %roots. Indeed it can vanish for $R^2=1/4$ or
 
 \subsection{Wave solutions in an unbounded, incompressible ocean}
 \label{SubSectionUsualDisp}
@@ -1002,18 +1014,8 @@ For small parameters $(\epsilon_i^2,\ \epsilon_a^2)$, the acoustic function $\om
 Ocean waves satisfying this time \ref{DispAcousDT} are acoustic waves modified by gravity and in particular by the stratification of the ocean. They will be called \textit{Modified Acoustic Waves (MAW)} in the following.
 
 \newpage
-\section{Graphic investigation of wave solutions}
+\section{Wave in bounded ocean}
 \label{SectionGraphic}
-
-\subsection{Dispersion surfaces in $(\delta_x,\ \delta_z,\ \omega)$ phase space}
-\label{SubSectionDispSurfIntro}
-
-In an unbounded ocean (far from the bottom and of the surface of the ocean), ocean waves only need to satisfy the inner-ocean dispersion relation \ref{EqFullDispera}. Pure internal and acoustic waves are examples of such waves. Many more types of waves can propagate in the ocean but if this assumption is relaxed, waves must satisfy simultaneously the inner and the bottom dispersion relations. These waves can basically be divided in two categories. The first category gathers evanescent waves which do not propagate vertically. Their vertical wave-number is a pure-imaginary complex $(\delta_z\in i\mathbb{R})$. Waves from the second category are usually called "wave modes": they do not propagate vertically either but their vertical wave-number must be "quantified" to satisfy the bottom and surface boundary conditions: it is solution of a discrete eigenvalue problem. As already stated in the introductory review, internal-gravity and acoustic-gravity modes are well-known examples of such modes.\\
-
-Ocean waves can consequently propagate in a $(x,\ z)$ vertical section of a "bounded ocean" if the triplet of wave-properties $(\delta_x,\ \delta_z,\ \omega)$ satisfy the 2 relations \ref{EqFullDispera} and \ref{EqFullDisperb}. This leaves only one degree of freedom to impose forcing (against two for waves propagating in an unbounded ocean). In the rather general context of a stratified and compressible ocean, two parameters $(\epsilon_i,\ \epsilon_a)$ have been identified to render the relative impact of gravity and compressibility in the propagation mechanism. The resulting set of two equations of three variables and two parameters is non-linear and simple general solution cannot be carried out analytically. Much insight can yet be gained in these ocean waves investigating geometrically the inner and boundary surfaces associated to the corresponding dispersion relations. \\
-Indeed, in $(\delta_x,\  \delta_z,\ \omega)$ phase-space, the inner and boundary dispersion relations are respectively given by two surfaces. When these two surfaces intersect, points lying on this intersection are triplets of wave solutions. The surfaces associated respectively to the inner and boundary relations shall now respectively be named the \textit{inner and boundary dispersion surfaces}.\\
-
-Several difficulties can be anticipated. Firstly, one already noted in subsection \ref{SubSectionDisp} that the inner dispersion relations were fourth-order relations in $(\delta_x,\ \delta_z,\ \omega)$, a consequence being that the corresponding surfaces are quartics and shall only be associated locally to simpler, well-known quadric surfaces (i.e. under further assumptions that will have to be clearly stated). Intersections and roots can indeed be simply derived analytically in this latter case. A consequence is that several local approximations will have be proposed, each corresponding to one type of waves associated to one set of parameters. A second major difficulty to carry out some analytical investigation is that the boundary dispersion relation is a transcendental relation and the intersections with the inner dispersion surface, when they exist, can not be easily derived and further investigation  requires additional assumptions.\\ 
 
 \begin{figure}[!h]
 	\centering		
