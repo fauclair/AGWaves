@@ -106,10 +106,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textit{Abstract:} \color{red} (CAUTION: ongoing update by Francis) \color{black} waves can propagate in a free-surface ocean due to compressibility or gravity and, at much lower scale, due to surface tension. Analytical solutions have for long been derived independently for acoustic waves or internal-gravity rays (in an unbounded ocean), for surface-gravity waves (in a free-surface-ocean) and for acoustic or internal modes (in a bounded ocean). Excluding capillarity waves and earth-rotation in the present study, a simple, unified model based on two dispersion relations is derived for waves propagating in a compressible, stratified, free-surface ocean. This model is an extension of Dukowicz's (2013). Wave solutions are identified and carefully studied geometrically in phase-space. Taylor developments are carried out with respect to small parameters describing stratification and compressibility and are compared to numerical approximations of the intersection of the various branches of the inner and boundary dispersion surfaces. Known approximations for swell, long-surface waves, internal-gravity rays, internal modes, acoustic waves or acoustic modes are recovered and the perturbations due to ocean stratification and/or compressibility are discussed.\\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -198,12 +198,14 @@ In the following section \ref{SectionLinModels}, a linear model of wave propagat
 %	\item numerical solutions of the intersections.
 %\end{itemize}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Linear Model for surface and internal acoustic-gravity waves}
 \label{SectionLinModels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{General model for a compressible, viscous ocean}
 \label{SubSectionNSModel}
 Ocean dynamics can be described with a small number of macroscopic variables: its velocity $(\vec{v})$, its pressure and density ($p$ and $\rho$), its temperature and salinity ($T$ and $S$).
@@ -456,7 +458,7 @@ Based on the pressure and density decompositions proposed in subsection \ref{Sub
     & \frac{\partial p}{\partial t} &&\approx
  -c_s^{2}\big(\frac{\partial \hat{\rho}_h u}{\partial x}
  +\frac{\partial \hat{\rho}_h w}{\partial z}\big)
- -\overbrace{\left(\frac{c_s^2}{D(z)}-g\right)}^{\frac{c_s^2 N_c^2}{g}}\hat{\rho}_hw
+ -\overbrace{\left(\frac{c_s^2}{D(z)}-g\right)}^{c_s^2 N_c^2/g}\hat{\rho}_hw
   \end{alignat}
 \end{subequations}
 with the bottom and surface relations:
@@ -476,7 +478,7 @@ The terms associated to the color arrows plotted on figure (\oldref{ModelMap}.d)
 	\item surface waves: the gravity force $(-\rho g)$ in Eq \ref{WM_b} is involved in energy transfers with the gravitational potential compartment through the surface kinematic relation \ref{WM_bc_b}.
 	\item internal waves: the gravity force $(-\rho g)$ in Eq \ref{WM_b} is involved in energy transfers with the gravitational potential compartment, mass balance is insured by Eq \ref{WM_c}. A first-order approximation (in $\delta V$) of advection is given by $(-\frac{c_s^2 N_c^2}{g} \hat{\rho}_h w)$ in Eq \ref{WM_d}, this term gathers vertical advection of isobaric (last part of over-brace development) and isopycnal (first part) surfaces.
 \end{itemize}
-The surface kinematic condition \ref{WM_bc_b} is specified here in an Eulerian form but at $z=0$ which is a first-order approximation of its true location $(z=\zeta)$. This approach differs from the Lagrangian approach proposed by Dukowicz (Dukowicz, 2015). Even if we do agree with the fact that the motion of the free-surface of the ocean is fundamentally Lagrangian, the Eulerian approach remains simpler and, in the present case, both approaches lead to the same dispersion relations.
+The surface kinematic condition \ref{WM_bc_b} is specified here in an Eulerian form but at $z=0$ which is a first-order approximation of its true location $(z=\zeta)$. This approach differs from the Lagrangian approach proposed by Dukowicz (Dukowicz, 2015). Even if we can agree with the fact that the motion of the free-surface of the ocean is fundamentally Lagrangian, a somehow-simpler Eulerian approach remains possible in non-Boussinesq context and, in the present case, both approaches lead to the same dispersion relations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -593,7 +595,7 @@ with
   \displaystyle
   \hat{\rho}_h(z)=\hat{\rho}_h(0)e^{-z/D_0},\quad \widetilde{W}(z)=e^{-z/(2D_0)}F(z),
 \end{equation}
-and
+and then
 \begin{equation}
   \displaystyle
   \begin{array}{rcl}
@@ -791,23 +793,130 @@ with $(p,\ q)\in\{2,\ 4,\ 6\}^2$. These Taylor developments show that the first 
 However we cannot conclude that $\omega_+$ ($\omega_-$) can be approximated by $\omega_a$ (receptively $\omega_i$). Indeed, the sum of the square of the wave-numbers at the denominator of the right-hand-sides of the above relations can be arbitrarily small (even for large $\delta_x$) if $\delta_z\in i \ \mathbb{R}$. In this case the roots $(\omega_\pm)$ might not be well-approximated by $\omega_a$ and $\omega_i$.\\
 To proceed, the dependency of the form and solutions of the inner dispersion relation to the vertical wave-number $\delta_z$ consequently needs to be investigated.
 
-\subsection{Dispersion surfaces in $(\delta_x,\ \delta_z,\ \omega)$ phase space}
+\subsection{Dispersion relations in $(\delta_x,\ \delta_z,\ \omega)$ phase space}
 \label{SubSectionDispSurfIntro}
 
 In an unbounded ocean (far from the bottom and of the surface of the ocean), ocean waves only need to satisfy the inner-ocean dispersion relation \ref{EqFullDispera}. Pure internal and acoustic waves are examples of such waves. Many more types of waves can propagate in the ocean but if this assumption is relaxed, waves must satisfy simultaneously the inner and the bottom dispersion relations. These waves can basically be divided in two categories. The first category gathers evanescent waves which do not propagate vertically. Their vertical wave-number is a pure-imaginary complex $(\delta_z\in i\mathbb{R})$. Waves from the second category are usually called "wave modes": they do not propagate vertically either but their vertical wave-number must be "quantified" to satisfy the bottom and surface boundary conditions: it is solution of a discrete eigenvalue problem. As already stated in the introductory review, internal-gravity and acoustic-gravity modes are well-known examples of such modes.\\
 
 Ocean waves can consequently propagate in a $(x,\ z)$ vertical section of a "bounded ocean" if the triplet of wave-properties $(\delta_x,\ \delta_z,\ \omega)$ satisfy the 2 relations \ref{EqFullDispera} and \ref{EqFullDisperb}. This leaves only one degree of freedom to impose forcing (against two for waves propagating in an unbounded ocean). In the rather general context of a stratified and compressible ocean, two parameters $(\epsilon_i,\ \epsilon_a)$ have been identified to render the relative impact of gravity and compressibility in the propagation mechanism. The resulting set of two equations of three variables and two parameters is non-linear and simple general solution cannot be carried out analytically. Much insight can yet be gained in these ocean waves investigating geometrically the inner and boundary surfaces associated to the corresponding dispersion relations. \\
-Indeed, in $(\delta_x,\  \delta_z,\ \omega)$ phase-space, the inner and boundary dispersion relations are respectively given by two surfaces. When these two surfaces intersect, points lying on this intersection are triplets of wave solutions. The surfaces associated respectively to the inner and boundary relations shall now respectively be named the \textit{inner and boundary dispersion surfaces}.\\
+Indeed, in $(\delta_x,\  \delta_z,\ \omega)$ phase-space, the inner and boundary dispersion relations are respectively given by two surfaces. When these two surfaces intersect, points lying on the intersection are triplets of wave solutions. The surfaces associated respectively to the inner and boundary relations shall now respectively be named the \textit{inner and boundary dispersion surfaces}.\\
 
 Several difficulties can be anticipated. Firstly, one already noted in subsection \ref{SubSectionDisp} that the inner dispersion relations were fourth-order relations in $(\delta_x,\ \delta_z,\ \omega)$, a consequence being that the corresponding surfaces are quartics and shall only be associated locally to simpler, well-known quadric surfaces (i.e. under further assumptions that will have to be clearly stated). Intersections and roots can indeed be simply derived analytically in this latter case. A consequence is that several local approximations will have be proposed, each corresponding to one type of waves associated to one set of parameters. A second major difficulty to carry out some analytical investigation is that the boundary dispersion relation is a transcendental relation and the intersections with the inner dispersion surface, when they exist, can not be easily derived and further investigation  requires additional assumptions.\\ 
-\newpage
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Inner dispersion relation \& wave in an unbounded ocean}
-To further investigate the inner dispersion relation \ref{EqFullDispera}, the evolution of the vertical wave-number $\delta_z$ as a function of the horizontal wave-number $\delta_x$ and of the pulsation $\omega$ is now further investigated. Note that the case of long waves will be considered separately in the following sections so that $\delta_x$ and $\delta_z$ do not need to be simultaneously small to start with.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The inner dispersion relation \ref{EqFullDispera} must be satisfied by any type of ocean waves whether the ocean can or cannot be locally considered as an unbounded medium (far from its surface and bottom). We shall show in the present section that (i) in $(\delta_x,\  \delta_z,\ \omega)$ phase-space, the inner dispersion relation leads to a dispersion surface with three branches, (ii) the acoustic and stratification factorization functions $\omega_a(\delta_x,\ \delta_z)$ and $\omega_i(\delta_x,\ \delta_z)$ can be good approximations of the branches, (iii) the bounded intermediate branch of the inner dispersion surface corresponds to vertically vanishing waves and (iv) the upper and lower branches of the inner dispersion surface (corresponding to large or low pulsations) correspond to acoustic waves and internal rays propagating in an unbounded ocean.
+
+%To further investigate the inner dispersion relation \ref{EqFullDispera}, the evolution of the vertical wave-number $\delta_z$ as a function of the horizontal wave-number $\delta_x$ and of the pulsation $\omega$ is now further investigated. Note that the case of long waves will be considered separately in the following sections so that $\delta_x$ and $\delta_z$ do not need to be simultaneously small to start with.
 
 \subsection{Branches of the inner dispersion relation: compressibility \& stratification.}
 \subsection{}
 \subsection{Branches of the inner dispersion relation}
+
+\begin{figure}[!h]
+	\centering		
+	\begin{subfigure}{0.36\linewidth}
+		\includegraphics[width=1\linewidth]{FIGURES/Fig_Homogeneous.png}
+		\caption{}
+	\end{subfigure}
+	~
+	\centering		
+	\begin{subfigure}{0.36\linewidth}
+		\includegraphics[width=1\linewidth]{FIGURES/Fig_Homogeneousz.png}
+		\caption{}
+	\end{subfigure}
+	~
+	\centering		
+	\begin{subfigure}{0.36\linewidth}
+		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_acous_kz_real.png}
+		\caption{}
+	\end{subfigure}
+	~
+	\centering
+	\begin{subfigure}{0.36\linewidth}
+		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_acous_kz_imag.png}
+		\caption{}
+	\end{subfigure}
+	
+	\begin{subfigure}{0.36\linewidth}
+		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_grav_kz_real.png}
+		\caption{}
+	\end{subfigure}
+	~
+	\centering
+	\begin{subfigure}{0.36\linewidth}
+		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_grav_kz_imag.png}
+		\caption{}
+	\end{subfigure}
+	\caption{\textit{dispersion surfaces in $(\delta_x,\ \delta_z,\ Log_{10}(\omega))$ space and wave solutions for an homogeneous and incompressible ocean. Polychrome: inner dispersion surfaces. Light-blue: boundary dispersion surfaces. Blue points: acsoutic waves. Red points: internal wave solutions. Black points: surface wave solutions.\\
+	(a) $\epsilon_i=\epsilon_a=0$: wave sogivelutions with pure-imaginary $\delta_z$.\\
+	(b)  $\epsilon_i=\epsilon_a=0$: wave solutions with pure-imaginary $\delta_z$ in the vicinity of the origin.\\
+	(c) $\epsilon_i=0$: wave solutions with real $\delta_z$ (acoustic and gravity branches).\\ 
+	(d) $\epsilon_i=0$: wave solutions with pure imaginary $\delta_z$ (surface gravity-wave branch).\\ 
+	(e) $\epsilon_a=0$:wave solutions with real $\delta_z$ (acoustic and gravity branches).\\ 
+	(f) $\epsilon_a=0$: wave solutions with pure imaginary $\delta_z$ (surface gravity-wave branch).\\
+	}}
+	\label{FigFullHomogeneous}
+\end{figure}
+
+\subsection{Waves propagating in an homogeneous and/or incompressible ocean}
+\label{SubSectionHomogeneousIncomp}
+To identify regions of $(\delta_x,\ \delta_z,\ \omega)$ phase-space where the dispersion surfaces intersect and to further understand the physics of the waves corresponding to the intersections, wave solutions are successively studied in an homogeneous-incompressible, homogeneous-compressible and stratified-incompressible ocean before eventually focusing on a more realistic, stratified and compressible ocean.\\
+
+\subsubsection{Surface waves in an homogeneous, compressible ocean}
+Figure \ref{FigFullHomogeneous} shows plots of the inner (polychromatic surface) and boundary (blue) dispersion surfaces for an homogeneous, incompressible ocean (i.e. for $\epsilon_i=\epsilon_a= 0$ simultaneously or independently). Figure (\oldref{FigFullHomogeneous}.a) shows the dispersion surfaces for large horizontal and vertical wave-numbers whereas (\oldref{FigFullHomogeneous}.b) corresponds to the same surfaces in the vicinity of the origin, i.e. for small horizontal and vertical wave-numbers.
+
+Each dispersion relation induces a relation between the non-dimensional wave-numbers $(\delta_x,\ \delta_z)$ and the non-dimensional pulsation $\omega$. For vanishing $\epsilon_i$ and $\epsilon_a$ parameters, the inner and boundary dispersion surfaces respectively correspond to the inner and boundary dispersion relations \ref{EqFullDisperai} and \ref{EqFullDisperbi} with real horizontal wave-number $\delta_x$ and pure imaginary vertical wave-number $\delta_z=i\delta_{z,i}$. For an homogeneous, incompressible ocean, no acoustic wave nor internal wave-rays can indeed propagate.
+The inner (polychromatic) dispersion surface for pure-imaginary wave-number is a vertical plane whereas the boundary dispersion relation leads to a quasi-horizontal (blue) dispersion surface for large $\delta_x$ and approaches the plane $\omega=0$ when $\delta_x$ tends toward zero independently of $\delta_z$. When $\delta_x$ and $\delta_{z,i}$ are both positive the equation of the inner dispersion surface is given by $\delta_x-\delta_{z,i} =0$ in total agreement with the conclusions reached in Subsection \ref{subsubsectioniR}.\\
+At the intersection between the inner and boundary dispersion surfaces, a wave solution can propagate. This intersection has been computed numerically and is represented by a black line on figure (\oldref{FigFullHomogeneous}.a and b).
+In the vicinity of the origin (\oldref{FigFullHomogeneous}.b), the boundary dispersion relation can be assimilated to an oblique plane now intersecting the inner dispersion plane along the black straight-line going through the origin. This line corresponds to a long-wave solution: $\omega=\delta_x=\delta_{z,i}$. Such a wave satisfies $\delta_{z,i}<<1$ and thus $k_{z,i}<<H$: perturbations are nearly constant over the vertical.\\
+These waves are surface waves propagating in an homogeneous, compressible, free-surface ocean, we shall see in Section \ref{SectionAnalyticalSol} that usual approximations of swell correspond to one point of this black-line intersection in phase-space.
+
+
+\subsubsection{Waves in a stratified or in a compressible ocean}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table  parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[h]
+	%\centerline{
+	\begin{tabular}{lll}
+		Gravity&$g$&9.8 m.s$^{-2}$\\
+		Sound speed&$c_s$&1500 m.s$^{-1}$\\
+		Depth&$H$&4000 m\\
+		Brunt-V\"ais\"al\"a frequency&$N$&10$^{-3}$ s$^{-1}$\\
+		Compressible Brunt-V\"ais\"al\"a frequency & $N_c=\sqrt{N^2-g^2/c_s^2}$ & 9.6 10$^{-4}$ s$^{-1}$\\[4mm]
+		Acoustic small parameter&$\displaystyle \epsilon_a=\frac{\sqrt{gH}}{c_s}$&$\approx 		0.132$\\[4mm]
+		Internal small parameter&$\displaystyle \epsilon_i=\sqrt{\frac{N_c^2H}{g}}$&$\approx 				0.0193$\\[4mm]
+		Scale depth&$D_0=1/\left(\frac{N^2}{g}+\frac{g}{c_s^2}\right)
+		=\frac{H}						{\epsilon_a^2+\epsilon_i^2}$
+		&$\approx 224$ km
+	\end{tabular}
+	%}
+	\caption{Main parameters used to plot dispersion relations.}
+	\label{TableParameters}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Figure \ref{FigFullHomogeneous} further displays the same inner and boundary dispersion surfaces far from and close to the origin for successively a homogeneous and compressible ocean (figures \oldref{FigFullHomogeneous}.c and \oldref{FigFullHomogeneous}.d) and  a stratified - incompressible ocean (figures \oldref{FigFullHomogeneous}.e and \oldref{FigFullHomogeneous}.f). The values of the non-vanishing small parameters used for these plots are given in table \ref{TableParameters} and correspond to a reference ocean. These two cases which are a priori physically very different, bear in fact mathematical and geometrical similarities.\\
+A comparison of figure (\oldref{FigFullHomogeneous}.a) with figures (\oldref{FigFullHomogeneous}.d) and (\oldref{FigFullHomogeneous}.f) shows that when $\epsilon_a \neq 0$ the upper part of the inner dispersion surface bends. A new branch of the inner dispersion surface, this time for real $\delta_z$ appears in the upper region corresponding to large pulsation in such a way that a wave can propagate for any strictly-positive pulsation $\omega$. In the same way, the lower part of this same figure bends when $\epsilon_i \neq 0$ and a new branch for real $\delta_z$ appears in the lower region, i.e. for small pulsations. This is in total agreement Figure \ref{FigContourdz}.\\
+%One way to give a physical meaning to the various branches of the dispersion surfaces and to associate them to physical waves with real vertical wave-numbers is to compare these branches to the physically meaningful acoustic and stratification functions ($\omega_a$ and $\omega_i$) derived and discussed in previous section \ref{SectionDisp}. 
+The surfaces $\omega^2=\omega_a^2$ and $\omega^2=\omega_i^2$ can be drawn in \ref{FigFullHomogeneous} and appear to be visually indistinguishable from respectively the inner dispersion branch in the upper region of figure (\oldref{FigFullHomogeneous}.c) and in the lower region of figure (\oldref{FigFullHomogeneous}.e) (consequently not shown in \ref{FigFullHomogeneous}). This consequently confirms the results of Section \ref{SectionAnalyticalSol}:
+\begin{itemize}
+	\item \textit{if $\omega>>1$ and $\delta_z\in\mathbb{R}$}, $\omega_+^2\approx\omega_a^2$ and the upper branch of the inner dispersion surface is close to the surface $\omega^2=\omega_a^2$. Waves lying on this surface are \textit{acoustic waves}.
+	\item \textit{if $\omega<<1$ and $\delta_z\in\mathbb{R}$}, $\omega_-^2\approx\omega_i^2$ and the lower branch of the inner dispersion surface is close to the surface $\omega^2=\omega_i^2$. Waves lying in on this surface are \textit{gravity waves}.
+\end{itemize}
+In a bounded ocean, wave-solutions can be found at the intersection of the inner and boundary dispersion surfaces. Numerical approximations of these intersections are plotted with blue points for the acoustic waves and with red points for the internal waves in figures (\oldref{FigFullHomogeneous}.c and e). The resulting color lines show that both acoustic and internal waves additionally present a quantified vertical wave-number of the form $\delta_z=\pi/2+m\pi$ for acoustic waves and $\delta_z=n\pi$ for internal waves. The former are thus acoustic modes modified by stratification and shall now be called \textit{Modified Acoustic Modes (MAM)} whereas the latter are (well-known) internal modes modified by compressibility and shall now be called \textit{Modified Internal Modes (MIM)}.\\
+
+If now $\delta_z\in i\ \mathbb{R}$, Figures (\oldref{FigFullHomogeneous}.d) and (\oldref{FigFullHomogeneous}.f) show that for a compressible or a stratified ocean, the inner and boundary dispersion surfaces intersect and, even if the inner surfaces are not vertical planes any more, the form of the intersection black-lines only slightly differ from the black line on (\oldref{FigFullHomogeneous}.a). The ocean waves associated to this intersection are surface waves modified by ocean compressibility or stratification and shall now be called \textit{Modified Surface Waves (MSW)}.\\ 
+
 \subsection{Three regions in $(\delta_x,\ \delta_z,\ \omega)$ phase-space}
 \label{SubSectionDeltaz}
 \begin{figure}[!h]
@@ -1013,107 +1122,12 @@ This expression is only modified at fourth order by small parameters $(\epsilon_
 For small parameters $(\epsilon_i^2,\ \epsilon_a^2)$, the acoustic function $\omega_a$ can thus be interpreted as an acoustic wave solution modified by the stratification of the ocean, through $\epsilon_i^2+\epsilon_a^2=H/D_0$. This modification is equal to $H/D_0$ and is a consequence of the linear advection term $\hat{\rho}_h(g-c_s^2 \frac{N^2}{g})w$ in Eq \ref{WM_d}.\\
 Ocean waves satisfying this time \ref{DispAcousDT} are acoustic waves modified by gravity and in particular by the stratification of the ocean. They will be called \textit{Modified Acoustic Waves (MAW)} in the following.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Wave in bounded ocean}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wave in a bounded ocean}
 \label{SectionGraphic}
-
-\begin{figure}[!h]
-	\centering		
-	\begin{subfigure}{0.36\linewidth}
-		\includegraphics[width=1\linewidth]{FIGURES/Fig_Homogeneous.png}
-		\caption{}
-	\end{subfigure}
-	~
-	\centering		
-	\begin{subfigure}{0.36\linewidth}
-		\includegraphics[width=1\linewidth]{FIGURES/Fig_Homogeneousz.png}
-		\caption{}
-	\end{subfigure}
-	~
-	\centering		
-	\begin{subfigure}{0.36\linewidth}
-		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_acous_kz_real.png}
-		\caption{}
-	\end{subfigure}
-	~
-	\centering
-	\begin{subfigure}{0.36\linewidth}
-		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_acous_kz_imag.png}
-		\caption{}
-	\end{subfigure}
-	
-	\begin{subfigure}{0.36\linewidth}
-		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_grav_kz_real.png}
-		\caption{}
-	\end{subfigure}
-	~
-	\centering
-	\begin{subfigure}{0.36\linewidth}
-		\includegraphics[width=1\linewidth]{FIGURES/Disp_Full_grav_kz_imag.png}
-		\caption{}
-	\end{subfigure}
-	\caption{\textit{dispersion surfaces in $(\delta_x,\ \delta_z,\ Log_{10}(\omega))$ space and wave solutions for an homogeneous and incompressible ocean. Polychrome: inner dispersion surfaces. Light-blue: boundary dispersion surfaces. Blue points: acsoutic waves. Red points: internal wave solutions. Black points: surface wave solutions.\\
-	(a) $\epsilon_i=\epsilon_a=0$: wave solutions with pure-imaginary $\delta_z$.\\
-	(b)  $\epsilon_i=\epsilon_a=0$: wave solutions with pure-imaginary $\delta_z$ in the vicinity of the origin.\\
-	(c) $\epsilon_i=0$: wave solutions with real $\delta_z$ (acoustic and gravity branches).\\ 
-	(d) $\epsilon_i=0$: wave solutions with pure imaginary $\delta_z$ (surface gravity-wave branch).\\ 
-	(e) $\epsilon_a=0$:wave solutions with real $\delta_z$ (acoustic and gravity branches).\\ 
-	(f) $\epsilon_a=0$: wave solutions with pure imaginary $\delta_z$ (surface gravity-wave branch).\\
-	}}
-	\label{FigFullHomogeneous}
-\end{figure}
-
-\subsection{Waves propagating in an homogeneous and/or incompressible ocean}
-\label{SubSectionHomogeneousIncomp}
-To identify regions of $(\delta_x,\ \delta_z,\ \omega)$ phase-space where the dispersion surfaces intersect and to further understand the physics of the waves corresponding to the intersections, wave solutions are successively studied in an homogeneous-incompressible, homogeneous-compressible and stratified-incompressible ocean before eventually focusing on a more realistic, stratified and compressible ocean.\\
-
-\subsubsection{Surface waves in an homogeneous, compressible ocean}
-Figure \ref{FigFullHomogeneous} shows plots of the inner (polychromatic surface) and boundary (blue) dispersion surfaces for an homogeneous, incompressible ocean (i.e. for $\epsilon_i=\epsilon_a= 0$ simultaneously or independently). Figure (\oldref{FigFullHomogeneous}.a) shows the dispersion surfaces for large horizontal and vertical wave-numbers whereas (\oldref{FigFullHomogeneous}.b) corresponds to the same surfaces in the vicinity of the origin, i.e. for small horizontal and vertical wave-numbers.
-
-Each dispersion relation induces a relation between the non-dimensional wave-numbers $(\delta_x,\ \delta_z)$ and the non-dimensional pulsation $\omega$. For vanishing $\epsilon_i$ and $\epsilon_a$ parameters, the inner and boundary dispersion surfaces respectively correspond to the inner and boundary dispersion relations \ref{EqFullDisperai} and \ref{EqFullDisperbi} with real horizontal wave-number $\delta_x$ and pure imaginary vertical wave-number $\delta_z=i\delta_{z,i}$. For an homogeneous, incompressible ocean, no acoustic wave nor internal wave-rays can indeed propagate.
-The inner (polychromatic) dispersion surface for pure-imaginary wave-number is a vertical plane whereas the boundary dispersion relation leads to a quasi-horizontal (blue) dispersion surface for large $\delta_x$ and approaches the plane $\omega=0$ when $\delta_x$ tends toward zero independently of $\delta_z$. When $\delta_x$ and $\delta_{z,i}$ are both positive the equation of the inner dispersion surface is given by $\delta_x-\delta_{z,i} =0$ in total agreement with the conclusions reached in Subsection \ref{subsubsectioniR}.\\
-At the intersection between the inner and boundary dispersion surfaces, a wave solution can propagate. This intersection has been computed numerically and is represented by a black line on figure (\oldref{FigFullHomogeneous}.a and b).
-In the vicinity of the origin (\oldref{FigFullHomogeneous}.b), the boundary dispersion relation can be assimilated to an oblique plane now intersecting the inner dispersion plane along the black straight-line going through the origin. This line corresponds to a long-wave solution: $\omega=\delta_x=\delta_{z,i}$. Such a wave satisfies $\delta_{z,i}<<1$ and thus $k_{z,i}<<H$: perturbations are nearly constant over the vertical.\\
-These waves are surface waves propagating in an homogeneous, compressible, free-surface ocean, we shall see in Section \ref{SectionAnalyticalSol} that usual approximations of swell correspond to one point of this black-line intersection in phase-space.
-
-
-\subsubsection{Waves in a stratified or in a compressible ocean}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Table  parameters
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[h]
-	%\centerline{
-	\begin{tabular}{lll}
-		Gravity&$g$&9.8 m.s$^{-2}$\\
-		Sound speed&$c_s$&1500 m.s$^{-1}$\\
-		Depth&$H$&4000 m\\
-		Brunt-V\"ais\"al\"a frequency&$N$&10$^{-3}$ s$^{-1}$\\
-		Compressible Brunt-V\"ais\"al\"a frequency & $N_c=\sqrt{N^2-g^2/c_s^2}$ & 9.6 10$^{-4}$ s$^{-1}$\\[4mm]
-		Acoustic small parameter&$\displaystyle \epsilon_a=\frac{\sqrt{gH}}{c_s}$&$\approx 		0.132$\\[4mm]
-		Internal small parameter&$\displaystyle \epsilon_i=\sqrt{\frac{N_c^2H}{g}}$&$\approx 				0.0193$\\[4mm]
-		Scale depth&$D_0=1/\left(\frac{N^2}{g}+\frac{g}{c_s^2}\right)
-		=\frac{H}						{\epsilon_a^2+\epsilon_i^2}$
-		&$\approx 224$ km
-	\end{tabular}
-	%}
-	\caption{Main parameters used to plot dispersion relations.}
-	\label{TableParameters}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Table 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Figure \ref{FigFullHomogeneous} further displays the same inner and boundary dispersion surfaces far from and close to the origin for successively a homogeneous and compressible ocean (figures \oldref{FigFullHomogeneous}.c and \oldref{FigFullHomogeneous}.d) and  a stratified - incompressible ocean (figures \oldref{FigFullHomogeneous}.e and \oldref{FigFullHomogeneous}.f). The values of the non-vanishing small parameters used for these plots are given in table \ref{TableParameters} and correspond to a reference ocean. These two cases which are a priori physically very different, bear in fact mathematical and geometrical similarities.\\
-A comparison of figure (\oldref{FigFullHomogeneous}.a) with figures (\oldref{FigFullHomogeneous}.d) and (\oldref{FigFullHomogeneous}.f) shows that when $\epsilon_a \neq 0$ the upper part of the inner dispersion surface bends. A new branch of the inner dispersion surface, this time for real $\delta_z$ appears in the upper region corresponding to large pulsation in such a way that a wave can propagate for any strictly-positive pulsation $\omega$. In the same way, the lower part of this same figure bends when $\epsilon_i \neq 0$ and a new branch for real $\delta_z$ appears in the lower region, i.e. for small pulsations. This is in total agreement Figure \ref{FigContourdz}.\\
-%One way to give a physical meaning to the various branches of the dispersion surfaces and to associate them to physical waves with real vertical wave-numbers is to compare these branches to the physically meaningful acoustic and stratification functions ($\omega_a$ and $\omega_i$) derived and discussed in previous section \ref{SectionDisp}. 
-The surfaces $\omega^2=\omega_a^2$ and $\omega^2=\omega_i^2$ can be drawn in \ref{FigFullHomogeneous} and appear to be visually indistinguishable from respectively the inner dispersion branch in the upper region of figure (\oldref{FigFullHomogeneous}.c) and in the lower region of figure (\oldref{FigFullHomogeneous}.e) (consequently not shown in \ref{FigFullHomogeneous}). This consequently confirms the results of Section \ref{SectionAnalyticalSol}:
-\begin{itemize}
-	\item \textit{if $\omega>>1$ and $\delta_z\in\mathbb{R}$}, $\omega_+^2\approx\omega_a^2$ and the upper branch of the inner dispersion surface is close to the surface $\omega^2=\omega_a^2$. Waves lying on this surface are \textit{acoustic waves}.
-	\item \textit{if $\omega<<1$ and $\delta_z\in\mathbb{R}$}, $\omega_-^2\approx\omega_i^2$ and the lower branch of the inner dispersion surface is close to the surface $\omega^2=\omega_i^2$. Waves lying in on this surface are \textit{gravity waves}.
-\end{itemize}
-In a bounded ocean, wave-solutions can be found at the intersection of the inner and boundary dispersion surfaces. Numerical approximations of these intersections are plotted with blue points for the acoustic waves and with red points for the internal waves in figures (\oldref{FigFullHomogeneous}.c and e). The resulting color lines show that both acoustic and internal waves additionally present a quantified vertical wave-number of the form $\delta_z=\pi/2+m\pi$ for acoustic waves and $\delta_z=n\pi$ for internal waves. The former are thus acoustic modes modified by stratification and shall now be called \textit{Modified Acoustic Modes (MAM)} whereas the latter are (well-known) internal modes modified by compressibility and shall now be called \textit{Modified Internal Modes (MIM)}.\\
-
-If now $\delta_z\in i\ \mathbb{R}$, Figures (\oldref{FigFullHomogeneous}.d) and (\oldref{FigFullHomogeneous}.f) show that for a compressible or a stratified ocean, the inner and boundary dispersion surfaces intersect and, even if the inner surfaces are not vertical planes any more, the form of the intersection black-lines only slightly differ from the black line on (\oldref{FigFullHomogeneous}.a). The ocean waves associated to this intersection are surface waves modified by ocean compressibility or stratification and shall now be called \textit{Modified Surface Waves (MSW)}.\\ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Inner and boundary relations in a stratified-compressible ocean}
 \label{SubSectionPotBranches}
@@ -1191,6 +1205,7 @@ Figure (\oldref{FigDispSolutions}.a) also confirms that given $\delta_x$ and $\o
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analytical approximation of surface, internal and acoustic wave-modes}
 \label{SectionAnalyticalSol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1527,7 +1542,7 @@ This approximate solution is plotted in figure (\oldref{Fig_Approx}.b) (red dash
 %\end{subequations}
 
 \textit{Smith-like MAM (large pulsations)}\\
-In Section \ref{SectionGraphic}, a numerical approximation of the intersection of the inner and boundary dispersion surfaces has been computed and plotted (blue line in figure \oldref{FigDispSolutions}). This intersection has been shown to correspond to Modified Acoustic Mode (MAM). An analytical parametrization is now derived for MAM with an iterative method and its characteristics are further investigated. Assuming that $\delta_z(\omega)\approx\delta_{z,m} \equiv \pi/2+m\pi$, a first approximation of $\delta_x^2(\omega)$ can be found based on a Taylor expansion with respect to $\epsilon_i$ and \epsilon_a$:
+In Section \ref{SectionGraphic}, a numerical approximation of the intersection of the inner and boundary dispersion surfaces has been computed and plotted (blue line in figure \oldref{FigDispSolutions}). This intersection has been shown to correspond to Modified Acoustic Mode (MAM). An analytical parametrization is now derived for MAM with an iterative method and its characteristics are further investigated. Assuming that $\delta_z(\omega)\approx\delta_{z,m} \equiv \pi/2+m\pi$, a first approximation of $\delta_x^2(\omega)$ can be found based on a Taylor expansion with respect to $\epsilon_i$ and $\epsilon_a$:
 \begin{equation}
     \delta_{x}^2(\omega) = \underbrace{\epsilon_a^2\omega^2
     -\delta_{z,m}^2\left(1+\frac{1}{\omega^2}\right)}_{\equiv\delta_{x,smith}^2(\omega)}
@@ -1662,11 +1677,12 @@ For the parameters $\epsilon_i$ and $\epsilon_a$ given in Table \ref{TableParame
 Orders of magnitude of the wave-numbers $(\delta_{x,*},\ \delta_{z,*})$ and pulsations $(\omega_*)$ are given in Table \ref{TableOrdersMag}. The resulting wave solution is a MSW wave that satisfies $R^2(\delta_{x,*},\ \delta_{z,*})=1/4$. Graphically this means that the solution point (in red) belongs to the line of points with horizontal normal vector or vanishing vertical gradient with respect to $\omega$. Dynamically, this means that the corresponding wave solution is "on the edge" and that for a small variation of the wave-number, of the pulsation or one the parameters it may enters in the region of unstable waves satisfying $R^2>1/4$. \\
 Other reference parameters given in Table \ref{TableParameters} remaining constant, Table \ref{TableOrdersMag} shows that when changing the depth of the reference ocean (4000 m) to only 10 m, the (normalized) pulsation $\omega_*$ remains quasi-constant and, as a consequence, the pulsation $\Omega_*$ varies approximately with $0.154 \sqrt{g/H}$ in this range of parameters ($\Omega_*$ decreases thus from $12\ mn$ to only $41.3\ s$).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion, conclusion}
 \label{SectionDiscussion}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dukowicz's acoustic, gravity and surface wave Lagragian model based on two dispersion relations (Dukowicz, 2013) has been alternatively re-derived with in a fully Eulerian context. Not that this later approach is not physically more coherent but its derivation is just simpler. Focussing on the ocean waves, acoustic and internal wave rays propagating in an unbounded ocean has first been re-visited with a single dispersion equation. Smith's acoustic modes (Smith, 2015) have been recovered with this model and a long-wave approximation of these acoustic modes has been proposed. Well-known internal modes have also been revised in a compressible, stratified ocean. Surface waves (edge waves) have been systematically investigated in a compressible and stratified ocean. Long surface waves have been revisited questioning their classification as barotropic modes. Dukowicz effort to give a coherent and complete framework for the description of geophysical waves is thus carried on much further integrating new wave solutions and clarifying the description of key regions of phase-space such as long waves.\\  
 Regarding the method now, $(\delta_x,\ \delta_z,\ \omega)$ phase-space is first explored geometrically to identify possible ocean waves and modes: intersections of the inner and boundary dispersion surfaces are localized numerically and are then used as references to evaluate the pertinence of wave approximations. This original graphical investigation when associated with systematic Taylor developments with respect to small compressibility and stratification parameters, provides an adapted approach to circumvent the non-linearity and the transcendental character of the boundary dispersion relation and the (high) fourth-order dependency in the pulsation $\omega$ of the inner dispersion relation.\\
 
