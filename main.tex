@@ -56,6 +56,8 @@
 %\usepackage{graphicx}
 %package floatend
 
+\usepackage{booktabs}
+
 %----------------------------------------------------------------------------
 % Packages: uncomment to debug
 %----------------------------------------------------------------------------
@@ -165,7 +167,7 @@ The treatment of the free-surface boundary can yet be much trickier: small-ampli
 		Acoustic gravity modes & Compressible, bounded &$\Omega_{am}^2=c_s^2(k_x^2+k_z^2)$&$k_{z,am}=\frac{\pi}{2H}+\frac{m\pi}{H}$ & MAM \\
 		Swell & Free-surface &$\Omega_{sw}^2=g k_x tan(k_x H)$ &$k_{z,sw}\approx k_x$ & MSW \\
 		Long Surface waves & Free-surface, shallow &$\Omega_{lsw}^2=gH\ k_x^2$ &$k_{z,lsw}\approx k_x$& LMSW \\
-		Internal gravity modes & Stratified, bounded &$\Omega_{im}^2=\frac{N\pi}{nH}$&$k_{z,im}=\frac{n\pi}{H}$ & MIMn \\
+		Internal gravity modes & Stratified, bounded &$\Omega_{im}^2=\frac{N\pi}{nH}$&$k_{z,im}=\frac{n\pi}{H}$ & MIM \\
 		Low frequency Oscillations
 		(Long MIM, $n=0$) & Stratified, bounded & & & LMIM0\\
 	\end{tabular}
@@ -1172,10 +1174,10 @@ For small parameters $(\epsilon_i^2,\ \epsilon_a^2)$, the acoustic function $\om
 \subsection{Numerical investigation of MSW, MAM \& MIM}
 \label{SubSectionPotBranches}
 
-The compressible and stratified ocean is now supposed to be bounded. \\
+The compressible and stratified ocean is now supposed to be bounded. Wave solutions must consequently satisfy both the inner \ref{EqFullDispera} and boundary \ref{EqFullDisperb} dispersion relations. In phase space, they must lie at the intersection of the inner and boundary dispersion surfaces.\\
 
 \textit{Branches of the boundary dispersion surface:}\\
-Figure \ref{FigDispSolutions} displays now simultaneously the inner and boundary dispersion surfaces for the same reference values of  $(\epsilon_i)$ and $(\epsilon_a)$ (table \oldref{TableParameters}). The branches of the boundary dispersion surface are first described before the intersections between the inner and boundary dispersion surface are computed numerically and plotted with color points. These intersections correspond to various wave solutions potentially propagating in a compressible, stratified, bounded ocean. Long waves (i.e. waves with small wave-numbers) are studied independently.
+Figure \ref{FigDispSolutions} displays now simultaneously the inner and boundary dispersion surfaces for the same reference values of  $(\epsilon_i)$ and $(\epsilon_a)$ (table \oldref{TableParameters}). The branches of the boundary dispersion surface are first described before the intersections between the inner and boundary dispersion surfaces are computed numerically and plotted with color points. These intersections correspond to various wave solutions potentially propagating in a compressible, stratified, bounded ocean. Long waves (i.e. waves with small wave-numbers) are studied independently.
 
 \begin{figure}[!h]
 	\centering		
@@ -1212,9 +1214,9 @@ For real vertical wave-numbers firstly, the boundary dispersion-surface (light-b
 For pure imaginary wave-numbers now, the light-blue surface looks like an horizontal hyperbolic-tangent-like surface. Figure \oldref{FigDispSolutions}.d shows that real and pure-imaginary boundary-dispersion surfaces are very close for small vertical wave-numbers and cannot be distinguished graphically. This is a consequence of the fact that the tangent and hyperbolic-tangent functions have similar first-order Taylor expansion (with respect to $\delta_z$ or $\delta_{z,i}$).\\
 
 \textit{Numerical approximations of wave solutions in a bounded ocean:}\\
-Figure \ref{FigDispSolutions} confirms in the general case the existing of three types of intersections between the inner and boundary dispersion surfaces and, as a consequence, three regions of phase-space where waves can propagate in a bounded ocean. These intersections are shown by three lines of color points. The black-point intersection corresponds to wave-solutions propagating with a pure imaginary vertical wave-number in the middle-range pulsation region (figures \oldref{FigDispSolutions}.b, c and d). These are surface (edge) waves propagating in a compressible, stratified ocean. Figure \oldref{FigDispSolutions}.d shows that they occupy a region of phase-space where the inner dispersion surface is approximately vertical and tangent to the $\delta_x\approx\delta_{z,i}$ plane meaning that the influence of compressibility and stratification (gravity) are both small. 
+Figure \ref{FigDispSolutions} confirms for this model of compressible, stratified, free-surface ocean, the existing of three types of intersections between the inner and boundary dispersion surfaces and, as a consequence, three regions of phase-space where waves can propagate in a bounded ocean. These intersections are shown by three lines of color points. The black-point intersection corresponds to wave-solutions propagating with a pure imaginary vertical wave-number in the middle-range pulsation region (figures \oldref{FigDispSolutions}.b, c and d). These are surface (edge) vertically-vanishing waves propagating in a compressible, stratified ocean, hereafter named Modified Surface Waves (MSW). Figure \oldref{FigDispSolutions}.d shows that they occupy a region of phase-space where the inner dispersion surface is approximately vertical and tangent to the $\delta_x\approx\delta_{z,i}$ plane meaning that the influence of compressibility and stratification (gravity) are both small. 
 
-The red and blue lines of points indicates that two remaining wave-solutions are possible, this time with real vertical wave-numbers. One (blue points) is an intersection of the boundary dispersion surface with the upper acoustic branch of the inner dispersion surface (figures \oldref{FigDispSolutions}.a, c and d), the other (red points) is an intersection of the same boundary dispersion surface with the lower stratification branch of the inner dispersion surface (figures \oldref{FigDispSolutions}.a and d). Since in both cases, vertical wave-numbers are quantified ($\delta_z = \pi/2+m\pi$ and $\delta_z \approx n\pi$), the resulting wave solutions can be associated to respectively Modified Acoustic Modes (MAM) and Modified Internal Modes (MIM), these modes being modified by both compressibility and stratification (gravity).\\
+The red and blue lines of points indicate that two remaining wave-solutions are possible, this time with real vertical wave-numbers. One (blue points) is an intersection of the boundary dispersion surface with the upper acoustic branch of the inner dispersion surface (figures \oldref{FigDispSolutions}.a, c and d), the other (red points) is an intersection of the same boundary dispersion surface with the lower stratification branch of the inner dispersion surface (figures \oldref{FigDispSolutions}.a and d). Since in both cases, vertical wave-numbers are quantified ($\delta_z = \pi/2+m\pi$ and $\delta_z \approx n\pi$), the resulting wave solutions can be associated to respectively Modified Acoustic Modes (MAM) and Modified Internal Modes (MIM), these modes being modified by both compressibility and stratification (gravity).\\
 
 \textit{Long-wave solutions:}\\
 In the vicinity of the origin for  $(\mid\delta_x\mid <<1\  and\ \mid\delta_z\mid << 1)$ and for $(\mid\omega\mid <<1)$ (i.e. for large wave-lengths and large periods), the upper and lower branches of the inner boundary surface on one side and the boundary dispersion surfaces for $(\delta_z\in\mathbb{R})$ and $(\delta_z\in i\ \mathbb{R})$ on the other side intersect for $\delta_z=0$ in the small-pulsation region. The MAW and the MSW branches of the inner dispersion surface cannot be distinguished when $\delta_x$ and $\delta_z$ simultaneously tend toward 0 for larger pulsations (not shown in the phase-space region above figure (\oldref{FigDispSolutions}.c).\\
@@ -1273,12 +1275,17 @@ Three types of wave solutions spreading on the three branches of the inner dispe
 		& $\epsilon_i$ &
 		$2.0\ 10^{-2}$ &
 		$1.0\ 10^{-3}$ & $0.20$\\\hline
+		 \specialrule{0pt}{2pt}{0pt}
 		Acoustic cut-off&$2\pi \sqrt{H/g} /\omega_{c,a}$ & $30\ mn$ & $30\ mn$ & $9.6\ mn$\\\hline
+		 \specialrule{0pt}{2pt}{0pt}
 		Internal cut-off& $2\pi \sqrt{H/g} /\omega_{c,i}$& $1.7\ h$ & $1.7\ h$ & $10.5\ mn$\\\hline
+		 \specialrule{0pt}{2pt}{0pt}
 		LMIM-LMSW cut-off & $2\pi H/\delta_{x,0}$& $1367\ km$ & $1000\ km$ & $123\ km$\\
 		& $2\pi \sqrt{H/g} \omega_{x,0}$ & $1.9\ h$ & $1.7\ h$ & $10.5\ mn$\\\hline
+		 \specialrule{0pt}{2pt}{0pt}
 		LMIM-$\delta_z(0)$ & $2\pi H/\delta_{z,0}$& $1379\ km$ & $62\ km$& $125\ km$\\
 		& $2\pi \sqrt{H/g} \omega_{z,0}$ & $\infty$& $\infty$ & $\infty$\\ \hline
+		 \specialrule{0pt}{2pt}{0pt}
 		MSW-neutral point & $2\pi H/\delta_{x,*}$& $161\ km$ & $407\ m$ & $123\ km$\\
 		&$2\pi H/\delta_{z,*}$ & $164\ km$ & $407\ m$&$2148\ km$\\
 		&$2\pi \sqrt{H/g} \omega_{*}$ &$12\ mn$&$41.3\ s$&$10.5\ mn$\\
@@ -1297,14 +1304,14 @@ Three types of wave solutions spreading on the three branches of the inner dispe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %In the present section, these approximations are plotted on figure \ref{Fig_Approx}to be compared with the correction numerical approximation obtained in Section \ref{SectionGraphic}.
 "Surface waves" generally refer to wave propagating horizontally as anomalies of the ocean free-surface (\cite{gill_1982}). In the vertical direction, these surface wave anomalies are "evanescent" meaning that, with the notation chosen in the present study, the vertical wave-number $(\delta_z)$ is a purely imaginary complex number. An alternative way to introduce "surface waves" is to introduce them as a limiting case of internal gravity mode (Duckowicz, 2015): they are then referred to as a barotropic mode with mode-number "n = 0" (using the notations of Section \ref{SectionGraphic}). The numerical investigation of long MSW conducted in the previous subsection indicates that these two characterizations refer to two different wave solutions.\\
-A MSW defined by its triplet $(\delta_x,\ \delta_z,\ \omega)$ must satisfy both the inner \ref{EqFullDispera} and boundary \ref{EqFullDisperb} dispersion relations for $\delta_z\ =\ i\ \delta_{z,i}$. A consequence is that the dispersion relations of these horizontally propagating waves, should, at least in theory, be advantageously parameterized in the form $(\ \delta_z(\delta_x),\ \omega(\delta_x)\ )$. As already stated before, such a parametrization is yet difficult to formulate since (i) the inner dispersion relation is fourth order in $\omega$ and (ii) the boundary dispersion relation is transcendental in $\delta_z$. A consequence is that analytically-simple, physically meaningful formulations can only be obtained under (very) restrictive assumptions.\\ 
+A MSW defined by its triplet $(\delta_x,\ \delta_z,\ \omega)$ must satisfy both the inner \ref{EqFullDispera} and boundary \ref{EqFullDisperb} dispersion relations for $\delta_z\ =\ i\ \delta_{z,i}$. A consequence is that the dispersion relations of these horizontally propagating waves, should, at least locally in phase space, be advantageously parameterized in the form $(\ \delta_{z,i}(\delta_x),\ \omega(\delta_x)\ )$. As already stated before, such a parametrization is yet difficult to formulate since (i) the inner dispersion relation is fourth order in $\omega$ and (ii) the boundary dispersion relation is transcendental in $\delta_z$. A consequence is that analytically-simple, physically meaningful formulations can only be obtained under (very) restrictive assumptions.\\ 
 %A way to circumvent these difficulties is to iteratively approximate and substitute $\delta_z(\delta_x)$ and $\omega(\delta_x)$ using both the inner and boundary dispersion relations.\\
 
 \subsubsection{Swell-like approximation of MSW}
 
 %In an homogeneous, incompressible ocean, both small parameters $\epsilon_i$ and $\epsilon_a$ vanish and we have shown in Section \ref{SectionGraphic} that the inner dispersion relations \ref{EqFullDispera} and \ref{EqFullDisperb} have a solution only for pure-imaginary vertical wave-numbers satisfying exactly $\delta_x=\delta_{z,i}$. In a stratified, compressible ocean, a MSW can propagate and the importance of stratification and/or compressibility can be evaluated by considering the difference $\delta_x-\delta_{z,i}$ (section \oldref{subsubsectioniR}).
 
-For pure imaginary vertical wave-numbers, the inner dispersion-relation \ref{EqFullDisperai} shows that at zeroth order in small parameters $(\epsilon_a,\ \epsilon_i)$, the horizontal and vertical wave-numbers are approximately identical: $\delta_x^2=\delta_{z,i}^2+\mathrm{O}(\epsilon_i^2,\epsilon_a^2)$. This relation is often postulated in textbook to reduce the number of variables. Vertical polarization relations are then functions of $\delta_x$ only (\cite{gill_1982}) and, as a consequence, the deduced dispersion relation is the boundary dispersion relation \ref{EqFullDisperb} for pure imaginary $\delta_z$ or an approximation of this relation. In this case, $\delta_{z,i}$ is just the vertical length-scale for wave decrease downward from the surface and, for (very) long waves $\delta_x>>1$, the surface wave is thus approximately depth-independent and the vertical length-scale disappears.\\
+For pure imaginary vertical wave-numbers, the inner dispersion-relation \ref{EqFullDisperai} shows that at zeroth order in small parameters $(\epsilon_a,\ \epsilon_i)$, the horizontal and vertical wave-numbers are approximately identical: $\delta_x^2=\delta_{z,i}^2+\mathrm{O}(\epsilon_i^2,\epsilon_a^2)$. This relation is often postulated in textbooks to reduce the number of variables. Vertical polarization relations are then functions of $\delta_x$ only (\cite{gill_1982}) and, as a consequence, the only-remaining dispersion relation is the boundary dispersion relation \ref{EqFullDisperb} for pure imaginary $\delta_z$ or an approximation of this relation. In this case, $\delta_{z,i}$ is just the vertical length-scale for wave decrease downward from the surface and, for (very) long waves $\delta_x>>1$, the surface wave is approximately depth-independent and the vertical length-scale disappears.\\
 We concluded in subsection \ref{subsubsectioniR} that Relation \ref{EqFullDisperai} gives the main corrective terms to this very crude first approximation: two terms  $\epsilon_i^2 \delta_x^2/\omega^2+(\epsilon_a^2+\epsilon_i^2)/4$ are associated to the stratification, one $\epsilon_a^2\omega^2$ is due to compressibility. The larger these terms, the larger the difference. In Subsection \ref{SubSectionPotBranches}, the corresponding intersection (black line) is located in the vertical region of the middle-range branch fig. \ref{Fig_Approx}. We shall now see that the crude $(\delta_x\approx\delta_z)$ assumption is sufficiently accurate to recover usual swell-like approximations (table \oldref{TableWave solutions}) but not the behaviour of long MSW observed in Section \ref{SectionGraphic}. An approximation of $\delta_x$ at second order in $\delta_z$ is thus derived and discussed. 
 
 At second order in $(\epsilon_i,\ \epsilon_a)$, the inner dispersion relation \ref{EqFullDisperai} simplifies to:
