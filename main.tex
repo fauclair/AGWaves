@@ -107,7 +107,7 @@
 %
 \affil[1]{Laboratoire d'A\'erologie, Universit\'e de Toulouse, CNRS, UPS, France}
 %\affil[2]{IPSL/LOCEAN, CNRS, UPMC, IRD, MNHN, France}
-\affil[2]{Univ Grenoble Alpes, Inria, CNRS, 38000 Grenoble INP, LJK, Grenoble, France}
+\affil[2]{Univ. Grenoble Alpes, Inria, CNRS, Grenoble INP, LJK, 38000 Grenoble, France}
 %\affil[4]{Service Hydrographie et Oc\'eanographie de la Marine, Brest, France}
 %\affil[5]{LEGOS, IRD, Universit\'e de Toulouse, CNRS, CNES, France}
 %
@@ -242,38 +242,38 @@ In the following section \ref{SectionLinModels}, a linear model of wave propagat
 
 \subsection{General model for a compressible, viscous ocean}
 \label{SubSectionNSModel}
-Ocean dynamics can be described with a small number of macroscopic variables: its velocity $(\vec{v})$, its pressure and density ($p$ and $\rho$), its temperature and salinity ($T$ and $S$).
+Ocean dynamics can be described with a small number of macroscopic variables: its velocity $(\mathbf{v})$, its pressure and density ($p$ and $\rho$), its temperature and salinity ($T$ and $S$).
 In a Cartesian framework, the general equations governing the motion of a compressible, viscous ocean are then:
 \begin{subequations}
  \begin{alignat}{2}
  \displaystyle
  %%%%%%%%%%%%%% Continuity %%%%%%%%%%%%%%%%%
  \label{NS_a} 
- & \frac{\partial\rho}{\partial t} &&= - \vec{\nabla}\cdot(\rho \vec{v})\\[3mm]  
+ & \frac{\partial\rho}{\partial t} &&= - \mathbf{\nabla}\cdot(\rho \mathbf{v})\\[3mm]  
  %%%%%%%%%%%%%%%% Momentum %%%%%%%%%%%%%%%%%
  \label{NS_b}
-	 & \frac{\partial \rho \vec{v}}{\partial t} 
-	 &&= -\vec{\nabla}\cdot(\rho \vec{v}\otimes \vec{v}) 
-	 -\vec{\nabla}p + 		
-	\vec{\nabla}\cdot\underbrace{\left(
-	\mu(\vec{\vec{\nabla}}\vec{v}+\vec{\vec{\nabla}}\vec{v}^{\ T})
- +\mu_2(\vec{\nabla}\cdot\vec{v})\ \vec{\vec{I}}\ \right)}_{\vec{\vec{\tau}}}
- +\rho \vec{g}\\
+	 & \frac{\partial \rho \mathbf{v}}{\partial t} 
+	 &&= -\mathbf{\nabla}\cdot(\rho \mathbf{v}\otimes \mathbf{v}) 
+	 -\mathbf{\nabla}p + 		
+	\mathbf{\nabla}\cdot\underbrace{\left(
+	\mu(\mathbf{\nabla}\mathbf{v}+\mathbf{\nabla}\mathbf{v}^{\ T})
+ +\mu_2(\mathbf{\nabla}\cdot\mathbf{v})\ \mathbf{I}\ \right)}_{\mathbold{\tau}}
+ +\rho \mathbf{g}\\
  %
  \label{NS_c}
- & \frac{\partial T}{\partial t} &&=-\vec{\nabla}\cdot(T\vec{v})
- +\vec{\nabla}\cdot\kappa_T\vec{\nabla}{T}\\[3mm]
+ & \frac{\partial T}{\partial t} &&=-\mathbf{\nabla}\cdot(T\mathbf{v})
+ +\mathbf{\nabla}\cdot\kappa_T\mathbf{\nabla}{T}\\[3mm]
  %
  \label{NS_d}
- & \frac{\partial S}{\partial t} &&=-\vec{\nabla}\cdot(S\vec{v})
- +\vec{\nabla}\cdot\kappa_S\vec{\nabla}{S}\\[3mm]
+ & \frac{\partial S}{\partial t} &&=-\mathbf{\nabla}\cdot(S\mathbf{v})
+ +\mathbf{\nabla}\cdot\kappa_S\mathbf{\nabla}{S}\\[3mm]
  \label{NS_e}
  & \rho &&= \rho(T,S,p)
  %
   \end{alignat}
 \end{subequations}
 
-where $\vec{\vec{I}}$ is the identity matrix,  superscript T indicates transposition, $\mu$ and $\mu_2$ are the kinetic and bulk (or second) viscosities, $\kappa_T$ and $\kappa_S$ are the heat and salt diffusivities.
+where $\mathbf{I}$ is the identity matrix,  superscript T indicates transposition, $\mu$ and $\mu_2$ are the kinetic and bulk (or second) viscosities, $\kappa_T$ and $\kappa_S$ are the heat and salt diffusivities.
 The first equations are written in a conservative form. They specify basic conservation principles: conservation of mass for equation \ref{NS_a}, conservation of momentum for equation \ref{NS_b} and conservation of heat and salt for equations \ref{NS_c} and \ref{NS_d}. Equation \ref{NS_e} is a functional relation describing the thermodynamic equation of state (EOS). 
 
 \subsection{Surface and bottom boundary conditions}
@@ -282,7 +282,7 @@ At the bottom $(z=-H)$ and at the surface $(z=\zeta)$ of the ocean, boundary con
 \begin{equation}
  \displaystyle
  \label{NS_BC0}
-  \vec{v}(z=-H)=\vec{0}
+  \mathbf{v}(z=-H)=\mathbf{0}
 \end{equation}
 Neglecting surface-tension pressure drop, the boundary condition for pressure at the surface of the ocean can be given by:
 \begin{equation}
@@ -324,13 +324,13 @@ The general ocean model presented in previous subsections \ref{SubSectionNSModel
 \end{figure}
 
 To introduce and evaluate simplifications, Figure \ref{ModelMap} shows a schematic map of the complete ocean model. Each colour box is related to a particular compartment of energy: kinetic energy is in light-blue, potential energy is in yellow and, in this later box, internal energy is in orange and gravitational potential energy is in green. The light-pink color is used for the EOS and dark-pink is used for the ocean Newtonian comportment law linking constraints and deformations 
-$\left(\vec{\vec{\tau}}=\mu(\vec{\vec{\nabla}}\vec{v}+\vec{\vec{\nabla}}\vec{v}^{\ T})
- +\mu_2(\vec{\nabla}\cdot\vec{v})\ \vec{\vec{I}}\ \right) $. 
+$\left(\mathbold\tau}}=\mu(\mathbf{\nabla}\mathbf{v}+\mathbf{\nabla}}\mathbf{v}^{\ T})
+ +\mu_2(\mathbf{\nabla}\cdot\mathbf{v})\ \mathbf{I}\ \right) $. 
 White and gray arrows either show transfers between the energy compartments or indicate quantities (variables) exchanged between these compartments. Color arrows indicate energy transfers associated to acoustic, internal and surface waves.
 The free-surface anomaly is also indicated in the upper part of the maps, showing that the surface kinematic relation (the prognostic equation for surface anomaly) links the kinematic and potential energy compartments.\\
 What the first map (Figures \oldref{ModelMap}.a) confirms at first glance is that the EOS plays a central role in the energy transfers and thus in the dynamics of the ocean and in the propagation mechanisms of ocean waves. 
 Ocean waves appears in such a map as oscillatory transfers of energy between two energy compartments (color arrows). 
-Acoustic waves induces such transfers between the kinematic and internal wave compartments (AW red arrow). \textit{"The (...) acoustic wave is, actually, the only type of wave out of all these that the fluid's mechanical properties can support in the absence of an external force field (magnetic, gravitational or Coriolis), a pre-existing flow, or a two-component system"}, \cite{lighthill_1967}. Acoustic waves are indeed associated to a balance between ocean compressibility (the restoring mechanism) and inertia. The compressible EOS describes the way the ocean fluid particle "resists" to volume change and the divergence of the velocity links the evolution of momentum (inertia) to the conservation of mass (expressed for density) as respectively indicated by white arrows $(\rho)$ and $(\vec{\nabla}\cdot\vec{v})$.\\
+Acoustic waves induces such transfers between the kinematic and internal wave compartments (AW red arrow). \textit{"The (...) acoustic wave is, actually, the only type of wave out of all these that the fluid's mechanical properties can support in the absence of an external force field (magnetic, gravitational or Coriolis), a pre-existing flow, or a two-component system"}, \cite{lighthill_1967}. Acoustic waves are indeed associated to a balance between ocean compressibility (the restoring mechanism) and inertia. The compressible EOS describes the way the ocean fluid particle "resists" to volume change and the divergence of the velocity links the evolution of momentum (inertia) to the conservation of mass (expressed for density) as respectively indicated by white arrows $(\rho)$ and $(\mathbf{\nabla}\cdot\mathbf{v})$.\\
 Surface waves (SW yellow arrow) and internal waves (IW blue arrow) are both associated to a transfer of energy between the kinematic and gravitational potential energy compartments. These waves are this time associated to a balance between gravity (the restoring force in the vertical momentum equation) and inertia. They differ by the way mass anomalies evolve. For internal waves, the conservation of mass and the EOS provides this evolution. For surface waves, these two equations provides the evolution of mass in the water column but the surface kinematic relation is required to prognosticate the free-surface anomaly $(\zeta)$. This later anomaly is then involved in the localisation of the boundary condition for pressure.\\
 If the objective is to model both acoustic and gravity waves, the associated energy transfers between compartments must thus be modelled with sufficient precision to allow propagation and to avoid energy leaking. Figure \oldref{ModelMap}.d shows a simpler, inviscid model of both acoustic and gravity wave propagations with a limited number of variables. This is the map of the model that shall be used in the present study. Temperature and salinity are not prognostic variables any more. Density includes temperature and salinity contributions but the specific contributions of these variables are modelled implicitly. The exchanges associated to acoustic, internal and surface waves remain. Pressure and density are further decomposed into a reference hydrostatic component $(p_h)$ and $(\rho_h)$ and a non-hydrostatic anomaly (a non-hydrostatic increment) $(\delta p)$ and $(\delta\rho)$ (gray dashed boxes). The hydrostatic decomposition is nothing but a balance between gravity and pressure forces and as such it is associated to low frequency description of the IW energy transfer. It an be viewed as a low-pass filter applied to the vertical momentum equation. It provides a short-cut for a slowly evolving component of internal waves and the non-hydrostatic increment is then the high-frequency increment involving both horizontal and vertical inertia.\\
 
