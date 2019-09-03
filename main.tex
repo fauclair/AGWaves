@@ -61,8 +61,8 @@
 %----------------------------------------------------------------------------
 % Packages: uncomment to debug
 %----------------------------------------------------------------------------
-%\usepackage{refcheck}
-%\renewcommand{\labelitemi}{\textbullet}
+\usepackage{refcheck}
+\renewcommand{\labelitemi}{\textbullet}
 
 %----------------------------------------------------------------------------
 % Packages: bibliography
@@ -358,7 +358,7 @@ Two usual decompositions are thus now formalized for pressure \ref{decompoP_f} a
   \label{decompor_f}  
   % Density decomposition
   \nonumber&\rho(\mathbf{x},t) &&=\underbrace{\hat{\rho}_{TS}(z)+\rho_{TS}'(\mathbf{x},t)}_{\rho_{TS}(\mathbf{x},t)=\rho(T,S,p=0)}
-  +\underbrace{\frac{1}{c_s^{2}}\left(\hat{p}_h(z)+p_h'(\mathbf{x},t)+\delta p(\mathbf{x},t)\right)}_{(\partial \rho / \partial p)_\eta p(\mathbf{x},t)} 
+  +\underbrace{\frac{1}{c_s^{2}}\left(\hat{p}_h(z)+p_h'(\mathbf{x},t)+\delta p(\mathbf{x},t)\right)}_{(\partial \rho / \partial p)_\eta\ p(\mathbf{x},t)} 
   +\mathrm{O}(p^2)\\[3mm]
   & &&\approx\underbrace{\underbrace{\hat{\rho}_{TS}(z)
   +\frac{\hat{p}_h(z)}{c_s^{2}}}
@@ -561,7 +561,16 @@ These relations can be substituted in propagation model \ref{WM_a} to \ref{WM_d}
   \widetilde{W}(z)=0
   \label{eqwfirst}
 \end{equation}
-and to remove first order term and simplify future development, the following change of variable can be made:
+To obtain this relation and in particular to eliminate the pressure from this expression, one needs to exclude the possibility that:
+\begin{equation}
+    \displaystyle
+   \Omega^2 =  cs^2\ kx^2 
+   \label{lamb0}
+\end{equation}
+which is the dispersion relation for acoustic Lamb waves \citep{apel_principles_1987}. As a consequence, Lamb waves cannot be investigated based on the model based on \ref{eqwfirst}. When needed, these waves shall be studied independently in the following.\\
+
+\textit{Stratification-induced change of variables:}\\
+To remove first order term and simplify future development, the following change of variable can be made:
 \begin{equation}
   \displaystyle
   \widetilde{W}(z)=e^{\int_{z}^0{ \frac{\rm{d} z_1}{2D(z_1)} } }F(z)
@@ -634,6 +643,42 @@ with $\hat{\rho}_h(z)=\hat{\rho}_h(0)e^{-z/D_0}$ and then
 \end{array}
 \end{equation}
 
+\textit{Lamb wave solution:}\\
+Before developing further the study of the dispersion relations in the general case, one needs to return to the particular case of Lamb waves \ref{lamb0} disregarded while deriving \ref{eqwfirst}. If the particular dispersion relation \ref{lamb0} is satisfied, the vertical momentum functions $F[z]$ and $\widetilde{W}(z)$ must vanish uniformly to satisfy the bottom boundary condition \ref{eqFbc2}:
+\begin{equation}
+    \label{polar0}
+    \displaystyle
+        \left(\widetilde{W}(z),\ 
+        \widetilde{p}(z),\ 
+        \widetilde{U}(z),\ 
+        \widetilde{\rho}(z)\right)=
+        \left(0,\ 1,\ 1/c_s
+        ,\ 1/c_s^2 \rigth)\ e^{-g\ z/cs^2}
+\end{equation}
+This solution is a classical Lamb waves propagating in a semi-infinite medium (such as the atmosphere). To propagate in the ocean, it must also satisfy the surface kinematic relation obtained by retaining second-order terms at the (otherwise-vanishing) right-hand-side of \ref{WM_bc_b}. To do so, a Taylor expansion of the pressure field in the vicinity of the surface brings to:
+\begin{equation}
+    \displaystyle
+    p(z=\zeta)=p(z=0)+\zeta\ \frac{\partial p}{\partial z}(z=0) 
+    + \mathrm{O}(\zeta ^2)=0
+\end{equation}
+which leads to:
+\begin{equation}
+    \begin{array}{rcl}
+    \displaystyle
+    \frac{\partial p}{\partial t}(z=0) &=&
+    -\frac{\partial\zeta}{\partial t}\ \frac{\partial p}{\partial z}(z=0) 
+    -\zeta\ \frac{\partial ^2 p}{\partial z ^2}(z=0) 
+    + \mathrm{O}(\zeta ^2)\\[4mm]
+    &=&
+    -\left(\underbrace{w(z=\zeta)}_{=0}
+    +u(z=\zeta)\frac{\partial\zeta}{\partial x}\right)
+    \ \frac{\partial p}{\partial z}(z=0) 
+    -\zeta\ \frac{\partial ^2 p}{\partial z\partial t}(z=0) 
+    + \mathrm{O}(\zeta ^2)
+    \end{array}
+\end{equation}
+The computation of the surface elevation anomaly $\zeta$ from this latter relation requires the use of an extended system of equations (including as a variable the velocity and not the momentum) and is, consequently, out of the scope of the present study. In the frame of the model presented here, Lamb waves can be included under the (first-order) assumption of rigid-lid (i.e. $\partial\zeta / \partial t \approx 0$).\\
+
 \subsection{Inner and boundary dispersion relations}
  \label{SubSectionDisp}
  
@@ -646,7 +691,7 @@ When the Brunt-V\"ais\"al\"a frequency $N$ is constant, the scale-depth is const
 	\label{EqDimFa}
     F''(z)
     +
-   \overbrace{ \left(k_x^2\frac{N_c^2-\Omega^2}{\Omega^2}+\frac{\Omega^2}{c_s^2}-\frac{1}{4D_0^2}\right)}^{\equiv k_z^2}
+   \overbrace{ (k_x^2\frac{N_c^2-\Omega^2}{\Omega^2}+\frac{\Omega^2}{c_s^2}-\frac{1}{4D_0^2}\right)}^{\equiv k_z^2}
     F(z)=0\\[4mm]
 	\label{EqDimFb}
     \displaystyle
@@ -665,9 +710,12 @@ The square of the vertical wave-number $k_z$ is defined in \ref{EqDimFa} and is 
    k_x^2\left(1-\frac{N_c^2}{\Omega^2}\right)+k_z^2
    -\frac{\Omega^2}{c_s^2}+\frac{1}{4D_0^2}=0
 \end{equation}
-This relation does not take into account the boundary conditions at the surface nor at the bottom and consequently only deals with the propagation of waves in the inner ocean. It shall now be referred to as the \textit{inner dispersion relation}.
+This relation does not take into account the boundary conditions at the surface nor at the bottom and consequently only deals with the propagation of waves in the inner ocean. It shall now be referred to as the \textit{inner dispersion relation}.\\
+%\color{red} 
+%That 's where we miss part of the story: another solution is possible for $k_z=0$ and $F(z)$ linear $(F''(z)=0$. The famous barotropic surface wave is the gravitational solution shown on Figure 5.d, there is also an acoustic solution that should look like Lamb waves...\\
+%\color{black}
 
-The general solution that satisfies the bottom boundary condition \ref{EqDimFc} is
+\textit{For a non-vanishing vertical wave-number $k_z$}, the general solution that satisfies the bottom boundary condition \ref{EqDimFc} is
 \begin{equation}
 	\label{EqDispRef}
   	\displaystyle
@@ -684,7 +732,23 @@ The surface boundary condition \ref{EqDimFb} leads then to the dispersion relati
      \Omega^2 =\frac{gk_x^2\ tan(Hk_z)}{k_z +\frac{ tan(Hk_z)}{2 D_0 }}
     =\frac{gk_x^2 }{\frac{1}{ 2 D_0} + k_z cotan(Hk_z)}
 \end{equation}
-A wave propagating in a "bounded ocean" must satisfy both the \textit{inner} and \textit{boundary} (dimensional) dispersion relation \ref{EqDispRefInner} and \ref{EqDispRefs}.
+A wave propagating in a "bounded ocean" must satisfy both the \textit{inner} and \textit{boundary} (dimensional) dispersion relation \ref{EqDispRefInner} and \ref{EqDispRefs}.\\
+
+\textit{For a vanishing wave-number $k_z=0$}, the specific dispersion relation is:
+\begin{equation}
+  \label{EqDispInnerkz0}
+  \displaystyle
+   k_x^2\left(1-\frac{N_c^2}{\Omega^2}\right)
+   -\frac{\Omega^2}{c_s^2}+\frac{1}{4D_0^2}=0
+\end{equation}
+and the equation \ref{EqDimFa} simplifies to $F''(z)=0$. $F(z)$ is thus linear and must satisfy the bottom boundary condition \ref{EqDimFc}: $F(z)=(z-H)/H$. In this case, the surface kinematic relation \ref{EqDimFb} additionally requires that:
+\begin{equation}
+    \displaystyle
+    \label{EqDispBoundkz0}
+    1+\frac{H}{2 D_0} 
+    - \frac{gH k_x^2}{\Omega^2} = 0
+\end{equation}
+
 
 \subsubsection{Dimensionless dispersion relations}
 Two parameters can now be defined to obtain dimension-less dispersion relations:
@@ -700,7 +764,8 @@ $\epsilon_a$ is a small acoustic parameter defined as the ratio of the velocity 
     ,\ \delta_z = k_z H \right)
 \end{equation}
 The constant scale-depth can be rewritten: $D_0=H/(\epsilon_i^2+\epsilon_a^2)$.  Note that this scale-depth does not include any compressibility-induced correction and, as a consequence, it is a function of both small parameters $\epsilon_i$ and $\epsilon_a$. As a consequence the stratification scale-depth ratio $H/D_0=\epsilon_i^2+\epsilon_a^2$ give an idea of the relative strength of the ocean stratification.\\
-A set of two dimensionless dispersion relations are thus eventually obtained:
+
+\textit{For a non-vanishing vertical wave-number $\delta_z$}, a set of two dimensionless dispersion relations are thus eventually obtained:
 \begin{subequations}
 	\label{EqFullDisper}
 	\begin{alignat}{2}	
@@ -714,11 +779,10 @@ A set of two dimensionless dispersion relations are thus eventually obtained:
 		%+\delta_z cotan(\delta_z)}
 	\end{alignat}
 \end{subequations}
-The first relation is the dispersion relation for the inner-ocean. It derives from equations \ref{WM_a} to \ref{WM_d}. The second one (hereafter the \textit{boundary dispersion relation}) is the dispersion relation deriving from the surface and bottom boundary conditions \ref{WM_bc_b}.
-In a free-surface ocean, wave solutions must satisfy both relations. This means that only one of the parameters among the pulsation $\omega$ and the horizontal and vertical wave-numbers ($\delta_x$ and $\delta_z$) can be settled by forcing, the remaining two adjusting so that the wave satisfies the two dispersion relations. For short vertical-wave-number and far for the bottom and surface boundaries, wave solutions can satisfied only the inner dispersion relation and be dynamically consistent. Purely acoustic waves or pure internal-gravity wave-rays are for instance known to propagate in the inner ocean as in an unbounded ocean.\\
+The first relation is the dispersion relation for the inner-ocean. It derives from equations \ref{WM_a} to \ref{WM_d}. The second one (hereafter the \textit{boundary dispersion relation}) is the dispersion relation deriving from the surface and bottom boundary conditions \ref{WM_bc_b}. The study of waves with vanishing wave-numbers is differed to subsection \ref{SubSectionLongWaves}.\\
+In a free-surface ocean, wave solutions must satisfy simultaneously relations \ref{EqFullDispera} and \ref{EqFullDisperb}. This means that only one of the parameters among the pulsation $\omega$ and the horizontal and vertical wave-numbers ($\delta_x$ and $\delta_z$) can be settled by forcing, the remaining two adjusting so that the wave satisfies the two dispersion relations. For short vertical-wave-number and far for the bottom and surface boundaries, wave solutions can satisfied only the inner dispersion relation and be dynamically consistent. Purely acoustic waves or pure internal-gravity wave-rays are for instance known to propagate in the inner ocean as in an unbounded ocean.\\
 %The system of dispersion equations \ref{EqFullDisper} is a system of 2 dispersion equations with 3 unknowns $(\omega,\ \delta_x,\ \delta_z)$ leaving one degree of freedom that is left for any kind of forcing initiating at least one of the possible wave solutions. 
 %One way to investigate these wave solution solutions is to consider that forcing is thus responsible for the value taken by one of the variable (hereafter either $\omega$ or $\delta_x$ will alternatively be this \textit{forced} variable) before expressing the remaining two variables as functions of the \textit{forced} variable.\\
-
 %To better understand their impact in the set of physical equations presented in subsection \ref{SubSectionLinModel}, a few "often-neglected" terms  are now temporally dropped and the dispersion relations are re-derived. When the gravity force or, for a similar result, the zeroth-order vertical term in the pressure equation are neglected in respectively the horizontal momentum and the EOS, the dispersion relation simplifies to:
 %\begin{subequations}
 %	\label{EqFullDisper1}
@@ -735,7 +799,6 @@ In a free-surface ocean, wave solutions must satisfy both relations. This means 
 
 Ocean waves can consequently propagate in a $(x,\ z)$ vertical section of a "bounded ocean" if the triplet of wave-properties $(\delta_x,\ \delta_z,\ \omega)$ satisfy the 2 relations \ref{EqFullDispera} and \ref{EqFullDisperb}. This leaves only one degree of freedom to impose forcing (against two for waves propagating in an unbounded ocean). In the rather general context of a stratified and compressible ocean, two parameters $(\epsilon_i,\ \epsilon_a)$ have been identified to render the relative impact of gravity and compressibility in the propagation mechanism. The resulting set of two equations of three variables and two parameters is non-linear and simple general solution cannot be carried out analytically. Much insight can yet be gained in these ocean waves investigating geometrically the inner and boundary surfaces associated to the corresponding dispersion relations. 
 Indeed, in $(\delta_x,\  \delta_z,\ \omega)$ phase-space, the inner and boundary dispersion relations are respectively given by two surfaces. When these two surfaces intersect, points lying on the intersection are triplets of wave solutions. The surfaces associated respectively to the inner and boundary relations will respectively be named the \textit{inner and boundary dispersion surfaces}.
-
 Several difficulties can be anticipated. Firstly, one already noted in subsection \ref{SubSectionDisp} that the inner dispersion relations were fourth-order relations in $(\delta_x,\ \delta_z,\ \omega)$, a consequence being that the corresponding surfaces are quartics and shall only be associated locally to simpler, well-known quadric surfaces (i.e. under further assumptions that will have to be clearly stated). Intersections and roots can indeed be simply derived analytically in this latter case. A consequence is that several local approximations will have be proposed, each corresponding to one type of waves associated to one set of parameters. A second major difficulty to carry out some analytical investigation is that the boundary dispersion relation is a transcendental relation and the intersections with the inner dispersion surface, when they exist, can not be easily derived and further investigation  requires additional assumptions.\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1362,6 +1425,7 @@ The usual dispersion relation for (very) long surface waves with well-known $\sq
 %This sequence of approximations approaches the intersection computed numerically (black-point line in Fig. \oldref{FigDispSolutions}) for Taylor developments of higher order (Figure \oldref{Fig_Approx}) and for large wave-numbers and pulsations, however the region of small vertical (and thus small horizontal) wave-numbers remains badly resolved. The (very) long-wave approximation (grey-dashed line on Fig. \ref{Fig_Approx}.d) goes through the origin (the horizontal and vertical wave-numbers simultaneously vanish) contradicting Figure \oldref{FigDispSolutions}.c: no dependency in $(\epsilon_i,\ \epsilon_a)$ is indeed maintained in the relation $\omega=\omega_{lsw}$. As this very crude approximation is partly relaxed with the fourth-order dependency in $(\epsilon_i,\ \epsilon_a)$ (grey dashed-dotted line on Figure \oldref{Fig_Approx}.d), the vertical wave-number $(\delta_z)$ vanishes for a finite horizontal wave-number $(\delta_x)$ when $\epsilon_i$ is not zero but still doe not agree with the numerical approximation shown in Figure (\oldref{FigDispSolutions}.c).\\
 
 \subsubsection{long surface waves ($\delta_{z,i}<<1$)}
+\label{SubSectionLongWaves}
 
 \textit{Long Modified Surface Waves (LMSW):}\\
 Swell-like relations do not provide an accurate modelling of the behaviour of long MSW. A more accurate description of this region of $(\delta_x,\ \delta_z,\ \omega)$ is required and figure (\oldref{FigDispSolutions}.d) suggests that a Taylor development with respect to $\delta_z$ should first be carried out. This means that the vertical attenuation scale of the wave remains large compared to the ocean depth. The Taylor approximation with respect to $\delta_z$ additionally annihilates the transcendental character of the dispersion relations and provides an analytical description of the behaviour of long surface waves:
@@ -1404,14 +1468,18 @@ Note that 6th-order approximation is given to obtained an accurate-enough descri
 \begin{equation}
 	\label{EqDispDeltazLim0}
 	\delta_{x,lmsw}^2(\epsilon_i,\ \epsilon_a)=\frac{
-	3(2+\epsilon_i^2+\epsilon_a^2)^2
+	3(2+\epsilon_i^2+\epsilon_a^2)
 	(4\epsilon_i^2+\epsilon_i^4-\epsilon_a^4)
 	}
 	{
-	12(4-\epsilon_a^4+4\epsilon_i^2+\epsilon_i^4)
+	12(2+\epsilon_i^2-\epsilon_a^2)
 	}
 \end{equation}
 giving a lower bound for the surface wave solution. No Taylor development has been carried out with respect to $\epsilon_i$ and $\epsilon_a$ to provide an accurate description of the MSW. A parametric description for long MSW of the form $(\ \delta_z(\delta_x),\ \omega(\delta_x)\ )$ can be obtained by substituting \ref{EqDispDeltaz0} in \ref{Eqxxx}. A simpler parameterized relation $\omega^2(\delta_x)$ could additionally be obtained with a Taylor development with respect to $\epsilon_i$ and $\epsilon_a$.\\
+
+%\color{red}
+%The latest relation should be simplified (numerator can be factorized) and this solution must be related to the (modified) barotropic surface relation: where the inner dispersion surfaces ($\delta_z$ real and imaginary) and the boundary dispersion surface intersect. Such point does not exist for the upper (acoustic) solution (Lamb waves) which consequently requires a second order model or a rigid-lid assumptions.\\
+%\color{black}
 
 \textit{Long Modified Internal Modes (LMIM0):}\\
 For horizontal wave-number smaller than this lower bound, the graphical study carried out in section \ref{SectionGraphic} indicates that this MSW solution can be extended toward smaller horizontal wave-numbers by a gravity wave solution (MIM). The purely-imaginary vertical wave-number $\delta_z$ bifurcates in this case to a real value. Figure (\oldref{FigDispSolutions}.c) further indicates that for $\delta_x^2 \leq \delta_{x,lmsw}^2$, this solution is the intersection of the lower branch of the inner dispersion surface with the boundary dispersion surface providing an additional MIM solution for mode-number $n=0$. 
@@ -1470,14 +1538,31 @@ A simpler expression can be derived by expending the $(\ \delta_{z,lmim}(\delta_
 %The resulting parameterizations $(\ \delta_{z,lmim}(\delta_x),\ \omega_{lmim}(\delta_x)\ )$ and $(\ \delta_{z,lmim0}(\delta_x),\ \omega_{lmim0}(\delta_x)\ )$ are plotted in (\oldref{Fig_Approx}.c) with respectively a pink-solid line and a pink-dashed line. None of lines can be distinguished from the numerical approximation of MIM (red-solid line) in the vicinity of $\delta_x=0$. However, not surprisingly, only the first parameterization (LMIM) gives an accurate description of the bifurcation point $(\delta_z=0)$.\\
 The expressions for (very) long surface wave with $\sqrt{gH}$ phase-velocity can only partly be recovered for small $\epsilon_i$ and $\epsilon_a$. Indeed, at lower order $\omega^2\approx\delta_x^2$ but Relation \ref{MIMdz2} implies that $\delta_z\neq\delta_x$.\\
 
+\textit{Long waves with vanishing vertical wave-number $\delta_z$}:\\
+Waves propagating with vanishing vertical wave-number ($\delta_z=0$) have already been encountered in subsection \ref{SubSectionDisp} where they have been shown to satisfy the dispersion relations \ref{EqDispInnerkz0} and \ref{EqDispBoundkz0}. In non-dimensional form, these relations can be rewritten:
+\begin{subequations}
+	\label{EqFullDisperkz0}
+	\begin{alignat}{2}	
+		\label{EqFullDisperkz0a}
+ 		& \delta_x^2 \left(1-\frac{\epsilon_i^2}{\omega^2}\right)
+ 		-\epsilon_a^2\omega^2+\frac{(\epsilon_a^2+\epsilon_i^2)^2}{4}
+ 		&&=0\\[3mm]
+		\label{EqFullDisperkz0b}
+		& \frac{\delta_x^2}{\omega^2}-\frac{\epsilon_i^2+\epsilon_a^2}{2}-1=0
+	\end{alignat}
+\end{subequations}
+Unsurprisingly, the solution of this system of two equations is a particular case of LMSW satisfying: $(\delta_x,\ \delta_z,\ \omega)=(\delta_{x,lmsw},\ 0,\ \omega_{lmsw})$. The wave solution can be identified on Figure (\oldref{FigDispSolutions}.c) as the intersection of the black and red lines and the $\delta_z=0$ vertical plane. These are the barotropic surface waves (with a velocity equal to $\sqrt{gH}$) derived for instance by \cite{gill_1982} and slightly modified in the present case by the stratification.\\
+
 \textit{Physical interpretation:}\\
 %For small horizontal wave-number, the wave solution can be viewed as a (long) \textit{barotropic mode} $(n=0)$ since it is on the same inner dispersion branch as MIM which are solutions for $n>0$. 
 MSW are yet primarily edge wave: the free-surface anomaly is one way or the other translated into a pressure anomaly by gravity, wave propagation is then achieved by a simple compensation mechanism based on the conservation of mass and momentum. If the ocean is homogeneous and incompressible, the pressure is an harmonic function and the horizontal and vertical length-scales have no reason to differ $(\delta_x=\delta_z)$. Compressibility and stratification modifies this and we already discussed in Section \ref{subsubsectioniR} that, in this case, the difference between the horizontal and vertical wave-number increases. The vertical wave-number decreases consequently faster and the MSW variations become very small over the vertical. If $\delta_x$ is further decreased, $\delta_z$ finally vanishes for small but finite $\delta_x$.\\
 If the horizontal wave-number keeps on decreasing, a surface wave can only propagate as a mode-0 (barotropic) MIM. In this case, the vertical wave-number must increase for a decreasing horizontal wave-number due to the stratification barrier: the stronger the stratification, the shallower the in-depth penetration of the surface wave.\\
-
 In a stratified ocean (whether compressible or not), the lower branch of the inner dispersion surface does not lead to physical solutions with positive, real horizontal vertical wave-numbers (figure \oldref{FigFullHomogeneous}.d).
-Surface waves can propagate but as long (mode-0) MIM solutio. 
-Propagation in an homogeneous ocean can be studied with the present model by setting to zero the stratification parameter $\epsilon_i$ together with the last (advective) term on the right-hand-side of the inner dispersion relation \ref{EqFullDispera}: $-(\epsilon_i^2+\epsilon_a^2)^2/4$. The \textit{barotropic mode} $(n=0)$ disappears and the inner dispersion surface does not intersect the boundary dispersion surface in the vicinity of the origin: the horizontal and vertical wave-numbers of the barotropic MSW must simultaneously vanish. In an homogeneous ocean, the evanescent surface wave solution MSW is valid till the origin where $\delta_z$, $\delta_x$ and $\omega$ all vanish. \\
+Surface waves can propagate but as long (mode-0) MIM solution. 
+Propagation in an homogeneous ocean can be studied with the present model by setting to zero the stratification parameter $\epsilon_i$ together with the last (advective) term on the right-hand-side of the inner dispersion relation \ref{EqFullDispera}: $-(\epsilon_i^2+\epsilon_a^2)^2/4$. 
+\color{red} Comments needed here for LMSW to link $\delta_x\approx\delta_z$ and $\delta_z=0$ cases. \color{black}\\
+
+%The \textit{barotropic mode} $(n=0)$ disappears and the inner dispersion surface does not intersect the boundary dispersion surface in the vicinity of the origin: the horizontal and vertical wave-numbers of the barotropic MSW must simultaneously vanish. In an homogeneous ocean, the evanescent surface wave solution MSW is valid till the origin where $\delta_z$, $\delta_x$ and $\omega$ all vanish. \\
 
 \textit{Orders of magnitudes:}\\
 For the 4000-m-deep reference ocean (Table \oldref{TableParameters}), the horizontal length scale associated to the transformation of the MSW into the long MIM $(\lambda_{x,lmsw}=2\pi/(\delta_{x,lmsw}/4000))$ reaches $1367\ km$ against $62\ km$ for the same 10-m-deep ocean. When $\delta_x$ keeps on decreasing below $\delta_{x,lmsw}$, $\delta_z$ increases monotically to a maximum value $\delta_{z,lmsw}(\delta_x=0)$. This vertical length scale reaches $1379\ km$ for the 4000-m-deep reference ocean and $62\ km$ for the same 10-m-deep ocean. The longer the horizontal length scale of the oscillation, the shorter the vertical length scale and the weaker the stratification (vanishing $\epsilon_i$) the longer the horizontal length-scale $\lambda_{x,lmsw}$. This long MIM solution is a low-frequency oscillation of the ocean due gravity and associated to the stratification of the ocean. It disappears when the stratification vanishes and the ocean can be assimilated to an homogeneous layer of water. It does persist in an incompressible ocean but is slightly modified by compressibility.
