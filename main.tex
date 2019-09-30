@@ -161,20 +161,43 @@ The treatment of the free-surface boundary can yet be much trickier: small-ampli
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table  Wave solutions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Version Laurent ... ne passe pas git-latexdiff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+%\begin{table}[!h]
+%	\setlength{\extrarowheight}{15pt}
+%	\begin{tabular} {P{4.5cm}|P{3cm}|c|P{2.3cm}}
+%		Waves & Assumptions & Pulsation $(\Omega)$ & $k_z$\\\hline
+%		Acoustic waves & Compressible, unbounded &$\Omega_{aw}^2=c_s^2(k_x^2+k_z^2)$& \\
+%		Internal gravity rays & Stratified, unbounded &$\Omega_{iwr}^2=\frac{N^2 k_x^2}{k_x^2+k_z^2}$ &  \\\hline
+%		Acoustic gravity modes & Compressible, bounded &$\Omega_{am}^2=c_s^2(k_x^2+k_z^2)$&$k_{z,am}=\frac{\pi}{2H}+\frac{m\pi}{H}$  \\
+%		Swell & Free-surface &$\Omega_{sw}^2=g k_x tan(k_x H)$ &$k_{z,sw}\approx k_x$  \\
+%		Long Surface waves & Free-surface, shallow &$\Omega_{lsw}^2=gH\ k_x^2$ &$k_{z,lsw}\approx k_x$ \\
+%		Internal gravity modes & Stratified, bounded &$\Omega_{im}^2=\frac{N\pi}{nH}$&$k_{z,im}=\frac{n\pi}{H}$
+%		  \\
+%		%Low frequency Oscillations
+%		%(Long MIM, $n=0$) & Stratified, bounded & & 0\\
+%	\end{tabular}
+	
+%	\caption{examples of ocean waves and their dispersion relations in a vertical section. $\Omega$ is the pulsation of the wave, $k_x$ and $k_z$ are the wave-numbers, $g$ is the acceleration of gravity, $H$ a reference depth, $N$ a reference Brunt-Väisälä pulsation and $c_s$ the speed of sound. $n$ and $m$ are two positive integer numbers. For an unbounded ocean (top) and for a bounded ocean (bottom).}
+%	\label{TableWave solutions}
+%\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{table}[!h]
 	\setlength{\extrarowheight}{15pt}
-	\begin{tabular} {P{4.5cm}|P{3cm}|c|P{2.3cm}}
-		Waves & Assumptions & Pulsation $(\Omega)$ & $k_z$\\\hline
-		Acoustic waves & Compressible, unbounded &$\Omega_{aw}^2=c_s^2(k_x^2+k_z^2)$& \\
-		Internal gravity rays & Stratified, unbounded &$\Omega_{iwr}^2=\frac{N^2 k_x^2}{k_x^2+k_z^2}$ &  \\\hline
-		Acoustic gravity modes & Compressible, bounded &$\Omega_{am}^2=c_s^2(k_x^2+k_z^2)$&$k_{z,am}=\frac{\pi}{2H}+\frac{m\pi}{H}$  \\
-		Swell & Free-surface &$\Omega_{sw}^2=g k_x tan(k_x H)$ &$k_{z,sw}\approx k_x$  \\
-		Long Surface waves & Free-surface, shallow &$\Omega_{lsw}^2=gH\ k_x^2$ &$k_{z,lsw}\approx k_x$ \\
-		Internal gravity modes & Stratified, bounded &$\Omega_{im}^2=\frac{N\pi}{nH}$&$k_{z,im}=\frac{n\pi}{H}$
-		  \\
-		%Low frequency Oscillations
-		%(Long MIM, $n=0$) & Stratified, bounded & & 0\\
+	\begin{tabular} {P{2.7cm}|P{3cm}|c|P{2.3cm}|P{3cm}}
+		Waves & Assumptions & Pulsation $(\Omega)$ & $k_z$ & Modified wave\\\hline
+		Acoustic waves & Compressible, unbounded &$\Omega_{aw}^2=c_s^2(k_x^2+k_z^2)$& & MAW \\
+		Internal gravity rays & Stratified, unbounded &$\Omega_{iwr}^2=\frac{N^2 k_x^2}{k_x^2+k_z^2}$ & & MIW \\\hline
+		Acoustic gravity modes & Compressible, bounded &$\Omega_{am}^2=c_s^2(k_x^2+k_z^2)$&$k_{z,am}=\frac{\pi}{2H}+\frac{m\pi}{H}$ & MAM \\
+		Swell & Free-surface &$\Omega_{sw}^2=g k_x tan(k_x H)$ &$k_{z,sw}\approx k_x$ & MSW \\
+		Long Surface waves & Free-surface, shallow &$\Omega_{lsw}^2=gH\ k_x^2$ &$k_{z,lsw}\approx k_x$& LMSW \\
+		Internal gravity modes & Stratified, bounded &$\Omega_{im}^2=\frac{N\pi}{nH}$&$k_{z,im}=\frac{n\pi}{H}$ & MIM \\
+		Low frequency Oscillations
+		(Long MIM, $n=0$) & Stratified, bounded & & & LMIM0\\
 	\end{tabular}
 	
 	\caption{examples of ocean waves and their dispersion relations in a vertical section. $\Omega$ is the pulsation of the wave, $k_x$ and $k_z$ are the wave-numbers, $g$ is the acceleration of gravity, $H$ a reference depth, $N$ a reference Brunt-Väisälä pulsation and $c_s$ the speed of sound. $n$ and $m$ are two positive integer numbers. For an unbounded ocean (top) and for a bounded ocean (bottom).}
@@ -182,23 +205,6 @@ The treatment of the free-surface boundary can yet be much trickier: small-ampli
 \end{table}
 %%%%%%  DIFF 1 %%%%%
 
-%\begin{table}[!h]
-%	\setlength{\extrarowheight}{15pt}
-%	\begin{tabular} {P{2.7cm}|P{3cm}|c|P{2.3cm}|P{3cm}}
-%		Waves & Assumptions & Pulsation $(\Omega)$ & $k_z$ & Modified wave\\\hline
-%		Acoustic waves & Compressible, unbounded &$\Omega_{aw}^2=c_s^2(k_x^2+k_z^2)$& & MAW \\
-%		Internal gravity rays & Stratified, unbounded &$\Omega_{iwr}^2=\frac{N^2 k_x^2}{k_x^2+k_z^2}$ & & MIW \\\hline
-%		Acoustic gravity modes & Compressible, bounded &$\Omega_{am}^2=c_s^2(k_x^2+k_z^2)$&$k_{z,am}=\frac{\pi}{2H}+\frac{m\pi}{H}$ & MAM \\
-%		Swell & Free-surface &$\Omega_{sw}^2=g k_x tan(k_x H)$ &$k_{z,sw}\approx k_x$ & MSW \\
-%		Long Surface waves & Free-surface, shallow &$\Omega_{lsw}^2=gH\ k_x^2$ &$k_{z,lsw}\approx k_x$& LMSW \\
-%		Internal gravity modes & Stratified, bounded &$\Omega_{im}^2=\frac{N\pi}{nH}$&$k_{z,im}=\frac{n\pi}{H}$ & MIM \\
-%		Low frequency Oscillations
-%		(Long MIM, $n=0$) & Stratified, bounded & & & LMIM0\\
-%	\end{tabular}
-%	
-%	\caption{examples of ocean waves and their dispersion relations in a vertical section. $\Omega$ is the pulsation of the wave, $k_x$ and $k_z$ are the wave-numbers, $g$ is the acceleration of gravity, $H$ a reference depth, $N$ a reference Brunt-Väisälä pulsation and $c_s$ the speed of sound. $n$ and $m$ are two positive integer numbers. For an unbounded ocean (top) and for a bounded ocean (bottom).}
-%	\label{TableWave solutions}
-%\end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -586,15 +592,16 @@ These relations can be substituted in propagation model \ref{WM_a} to \ref{WM_d}
   \label{eqwfirst}
 \end{equation}
 with the following polarization relations:
-
+% Label have been changed to use git-latexdiff
 \begin{subequations}
+    \label{POL_c}
 	\begin{alignat}{2}
 	\displaystyle
-	\label{POL_a}
+%	\label{POL_a}
 	&\widetilde{U}(z) && =\displaystyle  -ik_x\frac{(c_s^2-gD(z))\widetilde{W}(z)+c_s^2D(z)\widetilde{W}'(z)}{D(z)(\Omega^2-c_s^2k_x^2)} \\[3mm]
-	\label{POL_b}
+%	\label{POL_b}
 	&\widetilde{\rho}(z) &&=\displaystyle -i\frac{k_x^2(c_s^2-gD(z))\widetilde{W}(z)+\Omega^2D(z)\widetilde{W}'(z)}{D(z)\Omega(\Omega^2-c_s^2k_x^2)}\\[3mm]
-	\label{POL_c}
+%	\label{POL_c}
 	&\widetilde{p}(z) &&=\displaystyle -i\Omega\frac{(c_s^2-gD(z))\widetilde{W}(z)+c_s^2D(z)\widetilde{W}'(z)}{D(z)(\Omega^2-c_s^2k_x^2)}
 	\end{alignat}
 \end{subequations}
